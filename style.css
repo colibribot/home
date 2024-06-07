@@ -9,9 +9,8 @@ body {
     background-image: url('bot.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
     background-size: cover; /* Adjust the background size as needed */
     background-repeat: no-repeat; /* Make sure the background image doesn't repeat */
-    background-attachment: relevant; /* This will make the background image fixed while scrolling */
+    background-attachment: fixed; /* This will make the background image fixed while scrolling */
 }
-
 
 * {
     margin: 0;
@@ -20,9 +19,9 @@ body {
 }
 
 .container {
-max-width: 1170px; 
-margin: auto; 
-min-height: 100%; 
+    max-width: 1170px;
+    margin: auto;
+    min-height: 100%;
 }
 
 .row {
@@ -148,10 +147,6 @@ ul {
     }
 }
 
-
-
-
-
 /* Header styles */
 .container-1180px.flex {
     margin-bottom: 35px;
@@ -172,7 +167,7 @@ ul {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    font-family: Ggsans, sans-serif;
+    font-family: 'Poppins', sans-serif;
     position: relative;
 }
 
@@ -248,10 +243,7 @@ ul {
     background-color: #575757;
 }
 
-
 /* Support form styles */
-
-
 .dcontainer {
     width: 50%;
     margin: 50px auto;
@@ -302,37 +294,35 @@ button:hover {
     background-color: #218838;
 }
 
-
-/* new /*
-
-
+/* New */
 a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 991px)
-.nav-link-arrow {
-    width: 93%;
-    color: #23272a;
-    cursor: pointer;
-    background-image: url(https://assets-global.website-files.com/6257ade…/627a31f…_Safety%20Principles%20and%20Policies%20_%20Discord-3%201.svg);
-    background-position: 96% 60%;
-    background-repeat: no-repeat;
-    background-size: auto;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 8px 30px 8px 16px;
-    line-height: 24px;
-    display: flex;
-}
-.nav-link-arrow {
-    color: #fff;
-    padding: 20px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 22px;
-    transition: all .2s;
-    display: none;
+@media screen and (max-width: 991px) {
+    .nav-link-arrow {
+        width: 93%;
+        color: #23272a;
+        cursor: pointer;
+        background-image: url(https://assets-global.website-files.com/6257ade…/627a31f…_Safety%20Principles%20and%20Policies%20_%20Discord-3%201.svg);
+        background-position: 96% 60%;
+        background-repeat: no-repeat;
+        background-size: auto;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 8px 30px 8px 16px;
+        line-height: 24px;
+        display: flex;
+    }
+    .nav-link-arrow {
+        color: #fff;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        transition: all .2s;
+        display: none;
+    }
 }
 
 .plor {
