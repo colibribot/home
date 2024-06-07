@@ -153,18 +153,27 @@ ul {
 
 
 /* Header styles */
-.header {
-    background-color: #343a40;
-    color: #ffffff;
-    padding: 10px 0;
+.container-1180px.flex {
+    margin-bottom: 35px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    min-height: 80px;
+    max-height: 80px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .container-1180px {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1180px;
-    margin: 0 auto;
+    z-index: 10;
+    background: #150c21;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Ggsans, sans-serif;
+    position: relative;
 }
 
 .nav-links-container {
