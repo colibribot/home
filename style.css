@@ -175,6 +175,7 @@ ul {
     position: relative;
 }
 
+
 .nav-links-container {
     display: flex;
 }
@@ -203,33 +204,19 @@ ul {
     position: relative;
     display: flex;
     align-items: center;
-}
-
-.profile-trigger {
-    position: relative;
-    display: flex;
-    align-items: center;
     cursor: pointer;
-    padding-left: 30px; /* Extend the trigger area to the left */
 }
 
 .profile-pic {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin-left: -10px; /* Move the profile picture more to the left */
-}
-
-.profile:hover .dropdown-content,
-.profile-trigger:hover .dropdown-content,
-.dropdown-content:hover {
-    display: block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 40px; /* Adjust this to control the spacing between the profile picture and the dropdown */
+    top: 60px;
     right: 0;
     background-color: #343a40;
     color: #ffffff;
@@ -259,7 +246,6 @@ ul {
 .dropdown-content a:hover {
     background-color: #575757;
 }
-
 
 
 
