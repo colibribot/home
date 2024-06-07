@@ -175,7 +175,6 @@ ul {
     position: relative;
 }
 
-
 .nav-links-container {
     display: flex;
 }
@@ -246,6 +245,7 @@ ul {
 .dropdown-content a:hover {
     background-color: #575757;
 }
+
 
 
 
