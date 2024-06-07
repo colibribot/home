@@ -27,7 +27,7 @@
             </div>
             <div class="profile">
                 <div class="profile-trigger">
-                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic"> <!-- Add your profile picture here -->
+                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
                 </div>
                 <div id="dropdown-content" class="dropdown-content">
                     <p>alex1061</p>
@@ -41,44 +41,53 @@
 
     <!-- Support Form Section -->
     <div class="dcontainer">
-        <h1>Submit a request</h1>
+        <h1>Support Form</h1>
         <form id="support-form">
             <div class="form-group">
-                <label for="email">Your email address</label>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
-
             <div class="form-group">
-                <label for="issue-type">Type of issue</label>
-                <select id="issue-type" name="issue-type" required>
-                    <option value="" disabled selected>Select an issue type</option>
-                    <option value="login">Login Issues</option>
-                    <option value="billing">Billing Issues</option>
-                    <option value="bug">Report a Bug</option>
-                    <option value="feedback">General Feedback</option>
+                <label for="issue-type">Issue Type</label>
+                <select id="issue-type" name="issue_type" required>
+                    <option value="">Select an issue</option>
+                    <option value="billing">Billing</option>
+                    <option value="technical">Technical</option>
+                    <option value="general">General</option>
                 </select>
             </div>
-
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-
             <div class="form-group">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" rows="5" required></textarea>
             </div>
-
-            <div class="form-group">
-                <label for="attachments">Attachments</label>
-                <input type="file" id="attachments" name="attachments" multiple>
-            </div>
-
             <button type="submit">Submit</button>
         </form>
     </div>
 
-    <script src="scripts.js"></script>
+    <script>
+        document.getElementById('support-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form data
+            var formData = new FormData(this);
+            var formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
+            // Store form data in localStorage
+            localStorage.setItem('supportFormData', JSON.stringify(formObject));
+
+            // Redirect to the support page
+            window.location.href = 'support.html';
+        });
+    </script>
+
+  
 
   <footer class="footer">
   	 <div class="container">
