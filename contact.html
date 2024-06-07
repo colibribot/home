@@ -67,6 +67,9 @@
             </div>
             <button type="submit">Submit</button>
         </form>
+        <div id="confirmation-message" style="display: none;">
+            <p>Your support request has been sent successfully!</p>
+        </div>
     </div>
 
     <script>
@@ -83,11 +86,11 @@
             // Store form data in localStorage
             localStorage.setItem('supportFormData', JSON.stringify(formObject));
 
-            // Redirect to the support page
-            window.location.href = 'support.html';
+            // Show confirmation message
+            document.getElementById('support-form').style.display = 'none';
+            document.getElementById('confirmation-message').style.display = 'block';
         });
     </script>
-
   
 
   <footer class="footer">
