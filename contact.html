@@ -67,9 +67,6 @@
             </div>
             <button type="submit">Submit</button>
         </form>
-        <div id="confirmation-message" style="display: none;">
-            <p>Your support request has been sent successfully!</p>
-        </div>
     </div>
 
     <script>
@@ -83,12 +80,21 @@
                 formObject[key] = value;
             });
 
-            // Store form data in localStorage
-            localStorage.setItem('supportFormData', JSON.stringify(formObject));
+            // Retrieve existing form data from local storage
+            var existingFormData = localStorage.getItem('supportFormData');
+            var existingForms = existingFormData ? JSON.parse(existingFormData) : [];
+            
+            // Add the new form data to the existing forms
+            existingForms.push(formObject);
 
-            // Show confirmation message
-            document.getElementById('support-form').style.display = 'none';
-            document.getElementById('confirmation-message').style.display = 'block';
+            // Store the updated forms in local storage
+            localStorage.setItem('supportFormData', JSON.stringify(existingForms));
+
+            // Reset the form
+            this.reset();
+
+            // Display success message
+            alert('Your support request has been submitted successfully!');
         });
     </script>
   
