@@ -37,33 +37,29 @@
 
     <!-- Support Page Content -->
     <div class="dcontainer">
-        <h1>Support Requests</h1>
-        <div id="support-requests"></div>
+        <h1>Support Request Details</h1>
+        <div id="support-details"></div>
     </div>
 
     <script>
-        // Retrieve form data from local storage
+        // Retrieve form data from localStorage
         var formData = localStorage.getItem('supportFormData');
         if (formData) {
-            var supportRequests = JSON.parse(formData);
-            var supportRequestsContainer = document.getElementById('support-requests');
+            var formObject = JSON.parse(formData);
+            var supportDetails = document.getElementById('support-details');
 
-            // Display each support request
-            supportRequests.forEach(function(request, index) {
-                var supportRequestHtml = `
-                    <div class="support-request">
-                        <h2>Support Request ${index + 1}</h2>
-                        <p><strong>Username:</strong> ${request.username}</p>
-                        <p><strong>Email:</strong> ${request.email}</p>
-                        <p><strong>Issue Type:</strong> ${request.issue_type}</p>
-                        <p><strong>Description:</strong> ${request.description}</p>
-                    </div>
-                `;
-                supportRequestsContainer.innerHTML += supportRequestHtml;
-            });
+            // Display the form data
+            supportDetails.innerHTML = `
+                <p><strong>Username:</strong> ${formObject.username}</p>
+                <p><strong>Email:</strong> ${formObject.email}</p>
+                <p><strong>Issue Type:</strong> ${formObject.issue_type}</p>
+                <p><strong>Description:</strong> ${formObject.description}</p>
+            `;
+
+            // Clear the stored form data
+            localStorage.removeItem('supportFormData');
         } else {
-            // Display a message if there are no support requests
-            document.getElementById('support-requests').innerHTML = '<p>No support requests found.</p>';
+            supportDetails.innerHTML = '<p>No support request data found.</p>';
         }
     </script>
 
