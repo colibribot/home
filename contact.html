@@ -19,11 +19,11 @@
     <header class="header">
         <div class="container-1180px flex">
             <div class="nav-links-container">
-                <a href="dashboard.html" class="nav-link w-nav-link">Colibri</a>
-                <a href="index.html" class="nav-link w-nav-link">Home</a>
-                <a href="contact.html" class="nav-link w-nav-link">Contact</a>
-                <a href="docs.html" class="nav-link w-nav-link">Documentation</a>
-                <a href="https://discord.com/oauth2/authorize?client_id=1156663455399563289&permissions=8&integration_type=0&scope=applications.commands+bot" class="nav-link w-nav-link">Invite</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Colibri</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Home</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Contact</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Documentation</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Invite</a>
             </div>
             <div class="profile">
                 <div class="profile-trigger">
@@ -38,46 +38,47 @@
             </div>
         </div>
     </header>
-    
-    <script src="scripts.js"></script> <!-- Link to your JavaScript file -->
 
-
-
-<main class="main-content">
-    <section class="hero">
-        <div class="container">
-            <h1>Welcome to Colibri</h1>
-            <p>Your trusted source for quality services.... </p>
-            <a href="#" class="btn">Learn More</a>
-        </div>
-    </section>
-
-    <section class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-            <a href="about.html" class="btn">Read More</a>
-        </div>
-    </section>
-
-    <section class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service">
-                <h3>Service 1</h3>
-                <p>Description of Service 1.</p>
+    <!-- Support Form Section -->
+    <div class="container">
+        <h1>Submit a request</h1>
+        <form id="support-form">
+            <div class="form-group">
+                <label for="email">Your email address</label>
+                <input type="email" id="email" name="email" required>
             </div>
-            <div class="service">
-                <h3>Service 2</h3>
-                <p>Description of Service 2.</p>
+
+            <div class="form-group">
+                <label for="issue-type">Type of issue</label>
+                <select id="issue-type" name="issue-type" required>
+                    <option value="" disabled selected>Select an issue type</option>
+                    <option value="login">Login Issues</option>
+                    <option value="billing">Billing Issues</option>
+                    <option value="bug">Report a Bug</option>
+                    <option value="feedback">General Feedback</option>
+                </select>
             </div>
-            <div class="service">
-                <h3>Service 3</h3>
-                <p>Description of Service 3.</p>
+
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
             </div>
-        </div>
-    </section>
-</main>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="attachments">Attachments</label>
+                <input type="file" id="attachments" name="attachments" multiple>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
 
   <footer class="footer">
   	 <div class="container">
