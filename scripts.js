@@ -9,9 +9,14 @@ document.getElementById("profile-pic").addEventListener("click", function(event)
     }
 });
 
+// Prevent the dropdown from closing when clicking inside it
+document.getElementById("dropdown-content").addEventListener("click", function(event) {
+    event.stopPropagation(); // Prevent the event from bubbling up to the window
+});
+
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-    if (!event.target.matches('#profile-pic')) {
+    if (!event.target.matches('#profile-pic') && !event.target.closest('#dropdown-content')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
