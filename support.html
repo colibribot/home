@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Support Page</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container-1180px flex">
+            <div class="nav-links-container">
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Colibri</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Home</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Contact</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Documentation</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Invite</a>
+            </div>
+            <div class="profile">
+                <div class="profile-trigger">
+                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                </div>
+                <div id="dropdown-content" class="dropdown-content">
+                    <p>alex1061</p>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="premium.html">Premium</a>
+                    <a href="logout.html">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Support Page Content -->
+    <div class="dcontainer">
+        <h1>Support Request Details</h1>
+        <div id="support-details"></div>
+    </div>
+
+    <script>
+        // Retrieve form data from localStorage
+        var formData = localStorage.getItem('supportFormData');
+        if (formData) {
+            var formObject = JSON.parse(formData);
+            var supportDetails = document.getElementById('support-details');
+
+            // Display the form data
+            supportDetails.innerHTML = `
+                <p><strong>Username:</strong> ${formObject.username}</p>
+                <p><strong>Email:</strong> ${formObject.email}</p>
+                <p><strong>Issue Type:</strong> ${formObject.issue_type}</p>
+                <p><strong>Description:</strong> ${formObject.description}</p>
+            `;
+
+            // Clear the stored form data
+            localStorage.removeItem('supportFormData');
+        } else {
+            supportDetails.innerHTML = '<p>No support request data found.</p>';
+        }
+    </script>
+</body>
+</html>
