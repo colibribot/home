@@ -9,14 +9,9 @@ document.getElementById("profile-pic").addEventListener("click", function(event)
     }
 });
 
-// Prevent the dropdown from closing when clicking inside it
-document.getElementById("dropdown-content").addEventListener("click", function(event) {
-    event.stopPropagation(); // Prevent the event from bubbling up to the window
-});
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-    if (!event.target.matches('#profile-pic') && !event.target.closest('#dropdown-content')) {
+    if (!event.target.matches('#profile-pic') && !event.target.closest('.dropdown-content')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
@@ -25,5 +20,21 @@ window.onclick = function(event) {
             }
         }
     }
-}
+};
 
+// Support form submission handling
+document.getElementById('support-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const issueType = document.getElementById('issue-type').value;
+    const subject = document.getElementById('subject').value;
+    const description = document.getElementById('description').value;
+
+    if (email && issueType && subject && description) {
+        alert('Your support request has been submitted successfully!');
+        // Here you would typically send the form data to your server using AJAX or fetch.
+    } else {
+        alert('Please fill in all required fields.');
+    }
+});
