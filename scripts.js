@@ -1,4 +1,5 @@
-document.getElementById("profile-pic").addEventListener("click", function() {
+document.getElementById("profile-pic").addEventListener("click", function(event) {
+    event.stopPropagation(); // Prevent the event from bubbling up to the window
     var dropdownContent = document.getElementById("dropdown-content");
     if (dropdownContent.style.display === "block") {
         dropdownContent.style.display = "none";
