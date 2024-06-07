@@ -9,7 +9,6 @@ body {
     background-image: url('bot.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
     background-size: cover; /* Adjust the background size as needed */
     background-repeat: no-repeat; /* Make sure the background image doesn't repeat */
-    background-attachment: fixed; /* This will make the background image fixed while scrolling */
 }
 
 * {
