@@ -1,3 +1,4 @@
+// Toggle the dropdown visibility when the profile picture is clicked
 document.getElementById("profile-pic").addEventListener("click", function(event) {
     event.stopPropagation(); // Prevent the event from bubbling up to the window
     var dropdownContent = document.getElementById("dropdown-content");
@@ -10,7 +11,7 @@ document.getElementById("profile-pic").addEventListener("click", function(event)
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-    if (!event.target.matches('.profile-pic')) {
+    if (!event.target.matches('#profile-pic')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         for (var i = 0; i < dropdowns.length; i++) {
             var openDropdown = dropdowns[i];
@@ -20,3 +21,4 @@ window.onclick = function(event) {
         }
     }
 }
+
