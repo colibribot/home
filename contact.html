@@ -15,114 +15,104 @@
 
 
 
-    <!-- Header Section -->
-    <header class="header">
+    <!-- Navbar -->
+    <div class="container-1180px">
         <div class="container-1180px flex">
             <div class="nav-links-container">
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Colibri</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Home</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Contact</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Documentation</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Invite</a>
-            </div>
-            <div class="profile">
-                <div class="profile-trigger">
-                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-                </div>
-                <div id="dropdown-content" class="dropdown-content">
-                    <p>alex1061</p>
-                    <a href="dashboard.html">Dashboard</a>
-                    <a href="premium.html">Premium</a>
-                    <a href="logout.html">Log Out</a>
-                </div>
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link">Services</a>
+                <a href="#" class="nav-link">Contact</a>
             </div>
             <div class="dropdown">
                 <button id="dropdown-btn" class="dropdown-btn">☰</button>
                 <div id="dropdown-links" class="dropdown-links">
-                    <a href="https://discord.com/download" class="nav-link w-nav-link">Colibri</a>
-                    <a href="https://discord.com/download" class="nav-link w-nav-link">Home</a>
-                    <a href="https://discord.com/download" class="nav-link w-nav-link">Contact</a>
-                    <a href="https://discord.com/download" class="nav-link w-nav-link">Documentation</a>
-                    <a href="https://discord.com/download" class="nav-link w-nav-link">Invite</a>
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">About</a>
+                    <a href="#" class="nav-link">Services</a>
+                    <a href="#" class="nav-link">Contact</a>
+                </div>
+            </div>
+            <div class="profile">
+                <div class="profile-trigger">
+                    <img src="profile-pic.jpg" alt="Profile" class="profile-pic">
+                </div>
+                <div id="dropdown-content" class="dropdown-content">
+                    <a href="#">Profile</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
+    <!-- Support Form -->
     <div class="dcontainer">
         <h1>Support Form</h1>
         <form id="support-form">
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="issue-type">Issue Type</label>
-                <select id="issue-type" name="issue_type" required>
-                    <option value="">Select an issue</option>
-                    <option value="billing">Billing</option>
-                    <option value="technical">Technical</option>
-                    <option value="general">General</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" rows="5" required></textarea>
+                <label for="issue">Issue</label>
+                <textarea id="issue" name="issue" rows="4" required></textarea>
             </div>
             <button type="submit">Submit</button>
         </form>
     </div>
-
-    <script src="scripts.js"></script>
   
 
-  <footer class="footer">
-  	 <div class="container">
-  	 	<div class="row">
-  	 		<div class="footer-col">
-  	 			<h4>Navigation</h4>
-  	 			<ul>
-  	 				<li><a href="index.html">home</a></li>
-  	 				<li><a href="about.html">about</a></li>
-  	 				<li><a href="discord.com">join us</a></li>
-  	 				<li><a href="affiliations.html">affiliate program</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>Resources</h4>
-  	 			<ul>
-  	 				<li><a href="faq.html">FAQ</a></li>
-  	 				<li><a href="contact.html">Contact us</a></li>
-  	 				<li><a href="docs.html">Documentation</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>Company</h4>
-  	 			<ul>
-  	 				<li><a href="privacy.html">privacy policy</a></li>
-  	 				<li><a href="terms.html">terms of service</a></li>
-  	 				<li><a href="guidelines.html">Guidelines</a></li>
-  	 				<li><a href="company.html">Company information</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
-<a href="#"><i class="fab fa-discord"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
-  	 			</div>
-  	 		</div>
-  	 	</div>
-  	 </div>
-  </footer>
+<footer class="footer">
+     <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="discord.com">join us</a></li>
+                    <li><a href="affiliations.html">affiliate program</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="docs.html">Documentation</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="privacy.html">privacy policy</a></li>
+                    <li><a href="terms.html">terms of service</a></li>
+                    <li><a href="guidelines.html">Guidelines</a></li>
+                    <li><a href="company.html">Company information</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+     </div>
+</footer>
 
+    <script src="scripts.js"></script>
+
+  
 </body>
 </html>
