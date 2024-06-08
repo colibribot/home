@@ -18,20 +18,7 @@ body {
     box-sizing: border-box;
 }
 
-.container {
-max-width: 1170px; 
-margin: auto; 
-min-height: 100%; 
-}
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-ul {
-    list-style: none;
-}
 
 /* Header Styles */
 .header {
@@ -161,7 +148,20 @@ ul {
 }
 
 /* Footer Styles */
+.container {
+max-width: 1170px; 
+margin: auto; 
+min-height: 100%; 
+}
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
 
 .footer {
     display: block;
