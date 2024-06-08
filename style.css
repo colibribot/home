@@ -10,7 +10,7 @@ body {
     background-image: url('bot.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
     background-size: cover; /* Adjust the background size as needed */
     background-repeat: no-repeat; /* Make sure the background image doesn't repeat */
-    background-attachment: relevant; /* This will make the background image fixed while scrolling */
+    background-attachment: fixed; /* This will make the background image fixed while scrolling */
 }
 
 * {
@@ -211,18 +211,30 @@ button:hover {
 
 /* Footer Styles */
 .footer {
-    display: block;
     width: 100%;
-    position: relative;
     background: #150c21;
-    padding: 150px 25px 50px 25px;
+    padding: 50px 25px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     margin-top: 50px;
+    position: relative;
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer .row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .footer-col {
-    width: 25%;
+    width: 23%;
     padding: 0 15px;
 }
 
@@ -244,6 +256,11 @@ button:hover {
     height: 2px;
     box-sizing: border-box;
     width: 50px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
 }
 
 .footer-col ul li:not(:last-child) {
@@ -287,7 +304,7 @@ button:hover {
 /* Responsive Styles */
 @media (max-width: 767px) {
     .footer-col {
-        width: 50%;
+        width: 45%;
         margin-bottom: 30px;
     }
 }
@@ -297,19 +314,8 @@ button:hover {
         width: 100%;
     }
 
-    .nav-links-container {
-        display: none;
-    }
-
-    .dropdown {
-        display: block;
-    }
-
-    .dropdown-btn {
-        display: flex;
-    }
-
-    .profile {
-        display: none;
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
     }
 }
