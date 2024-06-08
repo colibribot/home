@@ -19,15 +19,15 @@
     <header class="header">
         <div class="container-1180px flex">
             <div class="nav-links-container">
-                <a href="dashboard.html" class="nav-link w-nav-link">Colibri</a>
-                <a href="index.html" class="nav-link w-nav-link">Home</a>
-                <a href="contact.html" class="nav-link w-nav-link">Contact</a>
-                <a href="docs.html" class="nav-link w-nav-link">Documentation</a>
-                <a href="https://discord.com/oauth2/authorize?client_id=1156663455399563289&permissions=8&integration_type=0&scope=applications.commands+bot" class="nav-link w-nav-link">Invite</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Colibri</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Home</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Contact</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Documentation</a>
+                <a href="https://discord.com/download" class="nav-link w-nav-link">Invite</a>
             </div>
             <div class="profile">
                 <div class="profile-trigger">
-                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic"> <!-- Add your profile picture here -->
+                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
                 </div>
                 <div id="dropdown-content" class="dropdown-content">
                     <p>alex1061</p>
@@ -36,11 +36,19 @@
                     <a href="logout.html">Log Out</a>
                 </div>
             </div>
+            <div class="dropdown">
+                <button id="dropdown-btn" class="dropdown-btn">☰</button>
+                <div id="dropdown-links" class="dropdown-links">
+                    <a href="https://discord.com/download" class="nav-link w-nav-link">Colibri</a>
+                    <a href="https://discord.com/download" class="nav-link w-nav-link">Home</a>
+                    <a href="https://discord.com/download" class="nav-link w-nav-link">Contact</a>
+                    <a href="https://discord.com/download" class="nav-link w-nav-link">Documentation</a>
+                    <a href="https://discord.com/download" class="nav-link w-nav-link">Invite</a>
+                </div>
+            </div>
         </div>
     </header>
-    
 
-    <!-- Support Form Section -->
     <div class="dcontainer">
         <h1>Support Form</h1>
         <form id="support-form">
@@ -69,34 +77,7 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById('support-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Get form data
-            var formData = new FormData(this);
-            var formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
-
-            // Retrieve existing form data from local storage
-            var existingFormData = localStorage.getItem('supportFormData');
-            var existingForms = existingFormData ? JSON.parse(existingFormData) : [];
-            
-            // Add the new form data to the existing forms
-            existingForms.push(formObject);
-
-            // Store the updated forms in local storage
-            localStorage.setItem('supportFormData', JSON.stringify(existingForms));
-
-            // Reset the form
-            this.reset();
-
-            // Display success message
-            alert('Your support request has been submitted successfully!');
-        });
-    </script>
+    <script src="scripts.js"></script>
   
 
   <footer class="footer">
