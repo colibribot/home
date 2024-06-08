@@ -72,6 +72,14 @@ body {
     align-items: center;
 }
 
+.profile-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 30px; /* Extend the trigger area to the left */
+}
+
 .profile-pic {
     width: 40px;
     height: 40px;
