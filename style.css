@@ -40,11 +40,33 @@ body {
     text-decoration: none;
 }
 
-.nav {
+.navb {
     display: flex;
     align-items: center;
 }
 
+.navb-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navb-links li {
+    margin: 0 10px;
+}
+
+.navb-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navb-links a:hover {
+    color: #ccc;
+}
 
 .profile {
     position: relative;
