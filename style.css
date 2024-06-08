@@ -45,18 +45,18 @@ body {
     align-items: center;
 }
 
-.nav-links {
+.nav-links. {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.nav-links li {
+.nav-links. li {
     margin: 0 10px;
 }
 
-.nav-links a {
+.nav-links. a {
     color: #fff;
     text-decoration: none;
     padding: 10px 15px;
@@ -64,7 +64,7 @@ body {
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links. a:hover {
     color: #ccc;
 }
 
@@ -127,14 +127,14 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
+    .nav-links. {
         display: none;
         flex-direction: column;
         width: 100%;
         background-color: #150c21;
     }
 
-    .nav-links.active {
+    .nav-links.active. {
         display: flex;
     }
 
