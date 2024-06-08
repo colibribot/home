@@ -1,3 +1,4 @@
+/* Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 body {
@@ -9,6 +10,7 @@ body {
     background-image: url('bot.jpg'); /* Replace 'path/to/your/image.jpg' with the path to your image */
     background-size: cover; /* Adjust the background size as needed */
     background-repeat: no-repeat; /* Make sure the background image doesn't repeat */
+    background-attachment: relevant; /* This will make the background image fixed while scrolling */
 }
 
 * {
@@ -17,21 +19,197 @@ body {
     box-sizing: border-box;
 }
 
-.container {
-    max-width: 1170px;
-    margin: auto;
-    min-height: 100%;
-}
-
-.row {
+/* Container Styles */
+.container-1180px.flex {
+    margin-bottom: 35px;
+    padding-top: 15px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    min-height: 80px;
+    max-height: 80px;
+    align-items: center;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-ul {
-    list-style: none;
+.container-1180px {
+    z-index: 10;
+    background: #150c21;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Ggsans, sans-serif;
+    position: relative;
 }
 
+/* Navbar Styles */
+.nav-links-container {
+    display: flex;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #cccccc;
+}
+
+/* Profile Styles */
+.profile {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 30px; /* Extend the trigger area to the left */
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: -10px; /* Move the profile picture more to the left */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 40px; /* Adjust this to control the spacing between the profile picture and the dropdown */
+    right: 0;
+    background-color: #343a40;
+    color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-content p {
+    margin: 0;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+/* Responsive Navbar Styles */
+.dropdown {
+    display: none;
+    position: relative;
+}
+
+.dropdown-btn {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+    align-items: center;
+}
+
+.dropdown-btn:focus {
+    outline: none;
+}
+
+.dropdown-links {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #343a40;
+    width: 200px;
+    z-index: 1;
+}
+
+.dropdown-links a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-links a:hover {
+    background-color: #575757;
+}
+
+/* Support Form Styles */
+.dcontainer {
+    width: 50%;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Footer Styles */
 .footer {
     display: block;
     width: 100%;
@@ -106,7 +284,7 @@ ul {
     background-color: #ffffff;
 }
 
-/* Responsive */
+/* Responsive Styles */
 @media (max-width: 767px) {
     .footer-col {
         width: 50%;
@@ -119,213 +297,19 @@ ul {
         width: 100%;
     }
 
-    .nav-links {
+    .nav-links-container {
         display: none;
     }
 
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #343a40;
-        padding: 10px 0;
-        z-index: 1000;
-    }
-
-    .nav-links li {
-        margin-right: 0;
-        text-align: center;
-    }
-
-    .nav-links li a {
-        padding: 10px;
+    .dropdown {
         display: block;
     }
-}
 
-/* Header styles */
-.container-1180px.flex {
-    margin-bottom: 35px;
-    padding-top: 15px;
-    padding-right: 20px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-    min-height: 80px;
-    max-height: 80px;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-}
-
-.container-1180px {
-    z-index: 10;
-    background: #150c21;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Poppins', sans-serif;
-    position: relative;
-}
-
-.nav-links-container {
-    display: flex;
-}
-
-.nav-link {
-    color: #ffffff;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #cccccc;
-}
-
-/* Profile styles */
-.profile {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.profile-trigger {
-    position: relative;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding-left: 30px; /* Extend the trigger area to the left */
-}
-
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: -10px; /* Move the profile picture more to the left */
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 40px; /* Adjust this to control the spacing between the profile picture and the dropdown */
-    right: 0;
-    background-color: #343a40;
-    color: #ffffff;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.dropdown-content p {
-    margin: 0;
-    padding: 12px 16px;
-    font-size: 14px;
-    color: #bbbbbb;
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 14px;
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-content a:hover {
-    background-color: #575757;
-}
-
-/* Support form styles */
-.dcontainer {
-    width: 50%;
-    margin: 50px auto;
-    background-color: #ffffff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-/* New */
-a {
-    text-decoration: none;
-}
-
-@media screen and (max-width: 991px) {
-    .nav-link-arrow {
-        width: 93%;
-        color: #23272a;
-        cursor: pointer;
-        background-image: url(https://assets-global.website-files.com/6257ade…/627a31f…_Safety%20Principles%20and%20Policies%20_%20Discord-3%201.svg);
-        background-position: 96% 60%;
-        background-repeat: no-repeat;
-        background-size: auto;
-        margin-left: 0;
-        margin-right: 0;
-        padding: 8px 30px 8px 16px;
-        line-height: 24px;
+    .dropdown-btn {
         display: flex;
     }
-    .nav-link-arrow {
-        color: #fff;
-        padding: 20px;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 22px;
-        transition: all .2s;
+
+    .profile {
         display: none;
     }
-}
-
-.plor {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
 }
