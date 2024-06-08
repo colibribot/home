@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profile-pic');
     const dropdownContent = document.getElementById('dropdown-content');
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinks = document.querySelector('.navb-links');
 
     profilePic.addEventListener('click', function(event) {
         event.stopPropagation();
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     hamburger.addEventListener('click', () => {
-        navb-Links.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
 });
 
