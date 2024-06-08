@@ -126,7 +126,18 @@ body {
     border-radius: 5px;
 }
 
+@media (max-width: 768px) {
+    .navb-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #150c21;
+    }
 
+    .navb-links.active {
+        display: flex;
+    }
+    
     .hamburger {
         display: flex;
     }
