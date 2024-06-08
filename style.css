@@ -18,15 +18,13 @@ body {
     box-sizing: border-box;
 }
 
-
-
 /* Header Styles */
 .header {
     width: 100%;
     background-color: #150c21;
 }
 
-.container-1180px.flex {
+.header-container.flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +38,7 @@ body {
     text-decoration: none;
 }
 
-.navb {
+.nav {
     display: flex;
     align-items: center;
 }
@@ -149,9 +147,9 @@ body {
 
 /* Footer Styles */
 .container {
-max-width: 1170px; 
-margin: auto; 
-min-height: 100%; 
+    max-width: 1170px; 
+    margin: auto; 
+    min-height: 100%; 
 }
 
 .row {
@@ -249,35 +247,7 @@ ul {
     .footer-col {
         width: 100%;
     }
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-links.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: #343a40;
-        padding: 10px 0;
-        z-index: 1000;
-    }
-
-    .nav-links li {
-        margin-right: 0;
-        text-align: center;
-    }
-
-    .nav-links li a {
-        padding: 10px;
-        display: block;
-    }
 }
-
-
 
 /* Support form styles */
 
@@ -331,37 +301,34 @@ button:hover {
     background-color: #218838;
 }
 
-
-/* new /*
-
-
 a {
     text-decoration: none;
 }
 
-@media screen and (max-width: 991px)
-.nav-link-arrow {
-    width: 93%;
-    color: #23272a;
-    cursor: pointer;
-    background-image: url(https://assets-global.website-files.com/6257ade…/627a31f…_Safety%20Principles%20and%20Policies%20_%20Discord-3%201.svg);
-    background-position: 96% 60%;
-    background-repeat: no-repeat;
-    background-size: auto;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 8px 30px 8px 16px;
-    line-height: 24px;
-    display: flex;
-}
-.nav-link-arrow {
-    color: #fff;
-    padding: 20px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 22px;
-    transition: all .2s;
-    display: none;
+@media screen and (max-width: 991px) {
+    .nav-link-arrow {
+        width: 93%;
+        color: #23272a;
+        cursor: pointer;
+        background-image: url(https://assets-global.website-files.com/6257ade…/627a31f…_Safety%20Principles%20and%20Policies%20_%20Discord-3%201.svg);
+        background-position: 96% 60%;
+        background-repeat: no-repeat;
+        background-size: auto;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 8px 30px 8px 16px;
+        line-height: 24px;
+        display: flex;
+    }
+    .nav-link-arrow {
+        color: #fff;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        transition: all .2s;
+        display: none;
+    }
 }
 
 .plor {
