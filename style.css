@@ -18,6 +18,12 @@ body {
     box-sizing: border-box;
 }
 
+.mcontainer {
+    max-width: 1170px; 
+    margin: auto; 
+    min-height: 100%; 
+}
+
 /* Header Styles */
 .header {
     width: 100%;
