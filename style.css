@@ -22,6 +22,7 @@ body {
     max-width: 1170px; 
     margin: auto; 
     min-height: 100%; 
+    text-align: center;
 }
 
 /* Header Styles */
