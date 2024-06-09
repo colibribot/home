@@ -361,7 +361,19 @@ a {
 /* Header for the dashboard */
 
 /* Styles for cards */
+.header {
+    background-color: #150c21;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
 
+.container {
+    flex: 1;
+    padding: 20px;
+}
 
 .features {
     text-align: center;
