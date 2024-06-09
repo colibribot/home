@@ -35,6 +35,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -358,103 +359,67 @@ a {
 }
 
 /* Header for the dashboard */
-.dashboard-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.dashboard-header h1 {
-    font-size: 2em;
-    color: #150c21;
-}
-
-.dashboard-header p {
-    font-size: 1em;
-    color: #666;
-}
 
 /* Styles for cards */
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.header {
+    background-color: #150c21;
     padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.card h2 {
-    font-size: 1.5em;
-    color: #150c21;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 1em;
-    color: #666;
-}
-
-/* Styles for forms */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
+    color: white;
+    text-align: center;
+    font-size: 2em;
     font-weight: bold;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+.container {
+    flex: 1;
+    padding: 20px;
 }
 
-button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #28a745;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
+.features {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
-button:hover {
-    background-color: #218838;
+.features h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-/* Grid layout for cards */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .dashboard-container {
-        width: 100%;
-        padding: 10px;
-    }
+.card {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .dashboard-header h1 {
-        font-size: 1.5em;
-    }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
 
-    .card h2 {
-        font-size: 1.2em;
-    }
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.card p {
+    font-size: 1em;
+    color: #bbb;
+}
+
+.card i {
+    font-size: 2em;
+    margin-bottom: 15px;
+    display: block;
+    color: #e91e63;
 }
