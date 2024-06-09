@@ -18,5 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
     });
-});
 
+    // Fetch bot information and display it
+    fetch('/api/bot-info')
+        .then(response => response.json())
+        .then(data => {
+            const botInfoDiv = document.getElementById('bot-info');
+            botInfoDiv.innerHTML = `
+                <h2>${data.botName}</h2>
+                <img src="${data.botAvatar}" alt="${data.botName}" width="100">
+                <p>Guild: ${data.guildName}</p>
+                <p>Members: ${data.memberCount}</p>
+            `;
+        })
+        .catch(error => console.error('Error fetching bot info:', error));
+});
