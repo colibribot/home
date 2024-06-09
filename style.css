@@ -363,10 +363,7 @@ a {
 /* Styles for cards */
 
 
-.container {
-    flex: 1;
-    padding: 20px;
-}
+
 
 .features {
     text-align: center;
