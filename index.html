@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Colibri</title>
-    <link rel="icon" type="image/x-icon" " href="bot.jpg"> <!-- Replace 'path/to/favicon.ico' with the path to your favicon ICO file -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colibri Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-
-
-
-
-
-    <!-- Header Section -->
-    <header class="header">
-        <div class="header-container flex">
+    
+    <header class="hero-section">
+<div class="header-container flex">
             <a href="index.html" class="logo">Colibri</a>
             <nav class="nav">
                 <ul class="navb-links">
@@ -44,113 +37,98 @@
                 </div>
             </div>
         </div>
+        
+        <div class="hero-content">
+            <h1>Welcome to Colibri Dashboard</h1>
+            <h3>Effortlessly manage your Discord server with powerful and intuitive tools.</h3>
+            <a href="dashboard.html" class="btn btn-primary">Get Started</a>
+        </div>
     </header>
 
+    
 
-
-
-<main class="main-content">
-    <section class="hero">
-        <div class="mcontainer">
-            <h1>Welcome to ColibriBot Dashboard</h1>
-            <p>Manage your server efficiently with our powerful and easy-to-use tools.</p>
-<a href="#" class="btn btn-primary">Get Started</a>
-    </section>
-
-    <section class="about">
-        <div class="mcontainer">
-            <h2>About Us</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
-            <a href="about.html" class="btn">Read More</a>
+        <section class="about" id="about">
+        <div class="container">
+            <h2>About Colibri</h2>
+            <p>Colibri is designed to help you manage your Discord server with ease. With powerful tools and a user-friendly interface, Colibri simplifies server management, allowing you to focus on building a great community.</p>
         </div>
     </section>
 
-    <section class="services">
-        <div class="mcontainer">
-            <h2>Our Services</h2>
-            <div class="service">
-                <h3>Service 1</h3>
-                <p>Description of Service 1.</p>
-            </div>
-            <div class="service">
-                <h3>Service 2</h3>
-                <p>Description of Service 2.</p>
-            </div>
-            <div class="service">
-                <h3>Service 3</h3>
-                <p>Description of Service 3.</p>
-            </div>
-        </div>
-    </section>
-</main>
+    
 
-<div class="container">
-        <div class="features">
+    <section class="features" id="features">
+        <div class="container">
             <h2>Features</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Moderation</h3>
+                    <p>Maintain peace in your server with powerful moderation tools that are easy to configure and use.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bell"></i>
+                    <h3>Notifications</h3>
+                    <p>Stay informed with custom notifications and alerts for server activities and updates.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Role Management</h3>
+                    <p>Seamlessly manage roles and permissions with intuitive controls and automated workflows.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analytics</h3>
+                    <p>Gain insights into server activities with comprehensive analytics and reporting features.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Automations</h3>
+                    <p>Automate repetitive tasks and streamline server management with smart automation tools.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Community Support</h3>
+                    <p>Get help from our community and support team anytime you need assistance.</p>
+                </div>
+            </div>
         </div>
-        <div class="card-grid">
-            <div class="card">
-                <i class="fas fa-gavel"></i>
-                <h3>Moderate</h3>
-<p></p>
-            </div>
-            <div class="card">
-                <i class="fas fa-folder"></i>
-                <h3>Logging</h3>
-<p></p>
-            </div>
-            <div class="card">
-                <i class="fas fa-user"></i>
-                <h3>Manage Roles</h3>
-<p></p>
-            </div>
-            <div class="card">
-                <i class="fas fa-tasks"></i>
-                <h3>Automate Tasks</h3>
-<p></p>
-            </div>
-            <div class="card">
-                <i class="fas fa-cogs"></i>
-                <h3>Easy to use</h3>
-<p></p>
-            </div>
-            <div class="card">
-                <i class="fas fa-clipboard-check"></i>
-                <h3>Built in Appeals</h3>
-<p></p>
-              <p></p><p><em>* Premium servers only.</em></p>
-            </div>
-        </div>
-    </div>
+    </section>
 
-    <!-- Footer Section -->
+
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to enhance your Discord server?</h2>
+            <p>Join thousands of satisfied users and improve your server management with Colibri.</p>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=1156663455399563289&permissions=8&scope=bot%20applications.commands" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="discord.com">Join Us</a></li>
-                        <li><a href="affiliations.html">Affiliate Program</a></li>
-                    </ul>
-                </div>
+            <div class="footer-cols">
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="premium.html">Premium</a></li>
+                        <li><a href="https://discord.gg/8v6XFPzHCd">Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="team.html">Careers</a></li>
+                        <li><a href="support.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="guidelines.html">Guidelines</a></li>
-                        <li><a href="company.html">Company Information</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -159,9 +137,7 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://discord.gg/8v6XFPzHCd"><i class="fab fa-discord"></i></a>
                     </div>
                 </div>
             </div>
@@ -169,6 +145,6 @@
     </footer>
 
     <script src="scripts.js"></script>
-
+    
 </body>
 </html>
