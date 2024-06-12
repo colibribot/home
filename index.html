@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colibri Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="bot.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     
     <header class="hero-section">
-<div class="header-container flex">
+        <div class="header-container flex">
             <a href="index.html" class="logo">Colibri</a>
             <nav class="nav">
                 <ul class="navb-links">
                     <li><a href="https://discord.gg/8v6XFPzHCd">Discord</a></li>
-                    <li><a href="dashboard.html">Dasbboard</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
                     <li><a href="docs.html">Documentation</a></li>
                     <li><a href="https://discord.com/api/oauth2/authorize?client_id=1156663455399563289&permissions=8&scope=bot%20applications.commands">Invite</a></li>
                 </ul>
@@ -30,12 +31,13 @@
                     <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
                 </div>
                 <div id="dropdown-content" class="dropdown-content">
-                    <p>alex1061</p>
+                    <p id="profile-name"></p>
                     <a href="dashboard.html">Dashboard</a>
                     <a href="premium.html">Premium</a>
-                    <a href="logout.html">Log Out</a>
+                    <a href="#" id="logout-btn">Log Out</a>
                 </div>
             </div>
+            <button id="login-btn" class="btn btn-primary" style="display:none;">Login with Discord</button>
         </div>
         
         <div class="hero-content">
@@ -45,16 +47,12 @@
         </div>
     </header>
 
-    
-
-        <section class="about" id="about">
+    <section class="about" id="about">
         <div class="container">
             <h2>About Colibri</h2>
             <p>Colibri is designed to help you manage your Discord server with ease. With powerful tools and a user-friendly interface, Colibri simplifies server management, allowing you to focus on building a great community.</p>
         </div>
     </section>
-
-    
 
     <section class="features" id="features">
         <div class="container">
@@ -94,8 +92,6 @@
         </div>
     </section>
 
-
-
     <section class="cta">
         <div class="container">
             <h2>Ready to enhance your Discord server?</h2>
@@ -128,7 +124,7 @@
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="guidelines.html">Guidelines</a></li>
+                        <li><a href="guidelines.html">Community Guidelines</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -137,14 +133,14 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="https://discord.gg/8v6XFPzHCd"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+        <p>&copy; 2024 Alex1061 All rights reserved.</p>
     </footer>
 
     <script src="scripts.js"></script>
-    
 </body>
 </html>
