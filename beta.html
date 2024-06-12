@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colibri Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    
+    <header class="hero-section">
+        <div class="header-container flex">
+            <a href="index.html" class="logo">Colibri</a>
+            <nav class="nav">
+                <ul class="navb-links">
+                    <li><a href="https://discord.gg/8v6XFPzHCd">Discord</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="https://discord.com/api/oauth2/authorize?client_id=1156663455399563289&permissions=8&scope=bot%20applications.commands">Invite</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            <div class="profile">
+                <div class="profile-trigger">
+                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                </div>
+                <div id="dropdown-content" class="dropdown-content">
+                    <p id="profile-name"></p>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="premium.html">Premium</a>
+                    <a href="#" id="logout-btn">Log Out</a>
+                </div>
+            </div>
+            <button id="login-btn" class="btn btn-primary" style="display:none;">Login with Discord</button>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Welcome to Colibri Dashboard</h1>
+            <h3>Effortlessly manage your Discord server with powerful and intuitive tools.</h3>
+            <a href="dashboard.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </header>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Colibri</h2>
+            <p>Colibri is designed to help you manage your Discord server with ease. With powerful tools and a user-friendly interface, Colibri simplifies server management, allowing you to focus on building a great community.</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Moderation</h3>
+                    <p>Maintain peace in your server with powerful moderation tools that are easy to configure and use.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bell"></i>
+                    <h3>Notifications</h3>
+                    <p>Stay informed with custom notifications and alerts for server activities and updates.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Role Management</h3>
+                    <p>Seamlessly manage roles and permissions with intuitive controls and automated workflows.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Analytics</h3>
+                    <p>Gain insights into server activities with comprehensive analytics and reporting features.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Automations</h3>
+                    <p>Automate repetitive tasks and streamline server management with smart automation tools.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Community Support</h3>
+                    <p>Get help from our community and support team anytime you need assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to enhance your Discord server?</h2>
+            <p>Join thousands of satisfied users and improve your server management with Colibri.</p>
+            <a href="https://discord.com/api/oauth2/authorize?client_id=1156663455399563289&permissions=8&scope=bot%20applications.commands" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="premium.html">Premium</a></li>
+                        <li><a href="https://discord.gg/8v6XFPzHCd">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="team.html">Careers</a></li>
+                        <li><a href="support.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="guidelines.html">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2024 Colibri. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
