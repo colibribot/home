@@ -1,4 +1,4 @@
-// scripts.js
+// script.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profile-pic');
