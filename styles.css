@@ -366,11 +366,29 @@ a {
 }
 
 @media (max-width: 768px) {
+    .header-container.flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile {
+        margin-top: 20px; /* Add space between profile dropdown and login button */
+    }
+
+    .btn-primary {
+        margin-top: 20px; /* Adjust top margin of login button */
+    }
+
+    .hamburger {
+        margin-top: 20px; /* Add space between hamburger menu and login button */
+    }
+
     .navb-links {
-        display: none;
+        display: none; /* Hide the nav links by default on smaller screens */
         flex-direction: column;
         width: 100%;
         background-color: #150c21;
+        margin-top: 20px; /* Add space between hamburger menu and nav links */
     }
 
     .navb-links.active {
@@ -379,12 +397,18 @@ a {
     
     .hamburger {
         display: flex;
+        margin-top: 20px; /* Add space between hamburger menu and login button */
     }
 
     .profile-trigger {
-        padding-left: 10px;
+        padding-left: 10px; /* Adjust profile trigger padding */
+    }
+
+    .dropdown-content {
+        top: 70px; /* Increase the distance from top for dropdown content */
     }
 }
+
 
 .footer p {
     text-align: center;
