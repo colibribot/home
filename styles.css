@@ -417,3 +417,9 @@ a {
     padding-top: 20px;
     text-align: center;
 }
+
+.spacer {
+    height: 20px; /* Adjust the height as needed */
+    border-top: 1px solid #ddd; /* Optional: Add a border for visual separation */
+    margin-top: 20px; /* Adjust the margin as needed */
+}
