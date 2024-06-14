@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Colibri Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="bot.jpg">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
+    
+    <header class="hero-section">
         <div class="header-container flex">
-            <a href="#" class="logo">Colibri</a>
+            <a href="index.html" class="logo">Colibri</a>
             <nav class="nav">
                 <ul class="navb-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Invite</a></li>
+                    <li><a href="https://discord.gg/8v6XFPzHCd">Discord</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="https://discord.com/api/oauth2/authorize?client_id=1156663455399563289&permissions=8&scope=bot%20applications.commands">Invite</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -30,86 +31,44 @@
                     <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
                 </div>
                 <div id="dropdown-content" class="dropdown-content">
-                    <p>alex1061</p>
+                    <p id="profile-name"></p>
                     <a href="dashboard.html">Dashboard</a>
                     <a href="premium.html">Premium</a>
-                    <a href="logout.html">Log Out</a>
+                    <a href="#" id="logout-btn">Log Out</a>
                 </div>
             </div>
+            <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
         </div>
-    </header>
+        
+    <h1>Welcome <span id="username"></span>!</h1>
+    <div id="guilds" class="guilds-container"></div>
+    <script src="script.js"></script>
 
-
-
-    <div class="container">
-        <div class="features">
-            <h2>Features</h2>
-        </div>
-        <div class="card-grid">
-            <div class="card">
-                <i class="fas fa-gavel"></i>
-                <h3>Moderate</h3>
-                <p>Empower your server's mod team with over 20 moderation commands. Enable automod to give your mods a break. Easily configurable through the web dashboard.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-folder"></i>
-                <h3>Logging</h3>
-                <p>Circle logs over 15 events, including deleted files, images, or videos. Unlike some bots, our logging is completely free. Want logs sent via embeds or compact messages? It's your choice.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-user"></i>
-                <h3>Manage Roles</h3>
-                <p>No more manually assigning roles or using clunky commands. Send customizable embeds with buttons or buttons to let your members assign their own roles.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-tasks"></i>
-                <h3>Automate Tasks</h3>
-                <p>Configure Circle to automatically reply to certain keywords, allowing your team to rest while Circle automatically answers frequent questions. Create your own custom commands using fancy embeds and advanced variables.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-cogs"></i>
-                <h3>Easy to use</h3>
-                <p>Stop wasting time figuring out how to use complex bots with confusing dashboards. Circle is designed to be easy for newbies and power users. Can't figure something out? Our (human) support team is here to help 24/7, for free.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-clipboard-check"></i>
-                <h3>Integrated Appeals</h3>
-                <p>Quit hassling with Google forms. Highly configurable and customizable for your server's needs. Handle all your ban appeals in one place, lookup moderation history with one click.</p>
-                <p><em>* Premium servers only.</em></p>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Footer Section -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="discord.com">Join Us</a></li>
-                        <li><a href="affiliations.html">Affiliate Program</a></li>
-                    </ul>
-                </div>
+            <div class="footer-cols">
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="premium.html">Premium</a></li>
+                        <li><a href="https://discord.gg/8v6XFPzHCd">Community</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="team.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="guidelines.html">Guidelines</a></li>
-                        <li><a href="company.html">Company Information</a></li>
+                        <li><a href="guidelines.html">Community Guidelines</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -118,13 +77,13 @@
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-discord"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="spacer"></div>
+        <p>&copy; 2024 Alex1061 All rights reserved.</p>
     </footer>
 
     <script src="scripts.js"></script>
