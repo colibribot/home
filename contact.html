@@ -46,43 +46,43 @@
         </div>
 
     <!-- Support Form Section -->
-<div class="dcontainer">
-    <h1>Submit a request</h1>
-    <form id="support-form" action="send_email.php" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="email">Your email address</label>
-            <input type="email" id="email" name="email" required="">
-        </div>
+    <div class="dcontainer">
+        <h1>Submit a request</h1>
+        <form id="support-form" action="http://localhost:3000/submit-form" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="email">Your email address</label>
+                <input type="email" id="email" name="email" required="">
+            </div>
 
-        <div class="form-group">
-            <label for="issue-type">Type of issue</label>
-            <select id="issue-type" name="issue-type" required="">
-                <option value="" disabled="" selected="">Select an issue type</option>
-                <option value="login">Login Issues</option>
-                <option value="billing">Billing Issues</option>
-                <option value="bug">Report a Bug</option>
-                <option value="feedback">General Feedback</option>
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="issue-type">Type of issue</label>
+                <select id="issue-type" name="issue-type" required="">
+                    <option value="" disabled="" selected="">Select an issue type</option>
+                    <option value="login">Login Issues</option>
+                    <option value="billing">Billing Issues</option>
+                    <option value="bug">Report a Bug</option>
+                    <option value="feedback">General Feedback</option>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required="">
-        </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required="">
+            </div>
 
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description" rows="5" required=""></textarea>
-        </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="5" required=""></textarea>
+            </div>
 
-        <div class="form-group">
-            <label for="attachments">Attachments</label>
-            <input type="file" id="attachments" name="attachments[]" multiple="">
-        </div>
+            <div class="form-group">
+                <label for="attachments">Attachments</label>
+                <input type="file" id="attachments" name="attachments" multiple="">
+            </div>
 
-        <button type="submit">Submit</button>
-    </form>
-</div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
 
 
