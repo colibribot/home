@@ -91,3 +91,75 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 })
+
+const express = require('express');
+const nodemailer = require('nodemailer');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
+
+const app = express();
+const port = 3000;
+
+// Configure storage for uploaded files
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/submit-form', upload.array('attachments'), (req, res) => {
+  const { email, issueType, subject, description } = req.body;
+  const files = req.files;
+
+  // Configure nodemailer transporter
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'your-email@gmail.com',
+      pass: 'your-email-password'
+    }
+  });
+
+  // Create email options
+  let mailOptions = {
+    from: email,
+    to: 'lacrp.managment@gmail.com',
+    subject: subject,
+    html: `
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Issue Type:</strong> ${issueType}</p>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <p><strong>Description:</strong> ${description}</p>
+    `,
+    attachments: files.map(file => {
+      return {
+        filename: file.originalname,
+        path: path.join(__dirname, file.path)
+      };
+    })
+  };
+
+  // Send email
+  transporter.sendMail(mailOptions, (error, info) => {
+    // Remove uploaded files after sending email
+    files.forEach(file => fs.unlinkSync(path.join(__dirname, file.path)));
+
+    if (error) {
+      return res.status(500).send('Failed to send email.');
+    }
+    res.send('Email sent successfully.');
+  });
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
