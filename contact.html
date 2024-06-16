@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" " href="bot.jpg"> <!-- Replace 'path/to/favicon.ico' with the path to your favicon ICO file -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
 <body>
@@ -16,28 +16,34 @@
 
 
     <!-- Header Section -->
-    <header class="header">
-        <div class="container-1180px flex">
-            <div class="nav-links-container">
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Colibri</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Home</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Contact</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Documentation</a>
-                <a href="https://discord.com/download" class="nav-link w-nav-link">Invite</a>
-            </div>
+<div class="header-container flex">
+            <a href="index.html" class="logo">Colibri</a>
+            <nav class="nav">
+                <ul class="navb-links">
+                    <li><a href="https://discord.gg/8v6XFPzHCd">Discord</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="https://discord.com/api/oauth2/authorize?client_id=1156663455399563289&amp;permissions=8&amp;scope=bot%20applications.commands">Invite</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
             <div class="profile">
                 <div class="profile-trigger">
-                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic"> <!-- Add your profile picture here -->
+                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
                 </div>
                 <div id="dropdown-content" class="dropdown-content">
-                    <p>alex1061</p>
+                    <p id="profile-name"></p>
                     <a href="dashboard.html">Dashboard</a>
                     <a href="premium.html">Premium</a>
-                    <a href="logout.html">Log Out</a>
+                    <a href="#" id="logout-btn">Log Out</a>
                 </div>
             </div>
+            <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
         </div>
-    </header>
 
     <!-- Support Form Section -->
     <div class="dcontainer">
@@ -78,51 +84,50 @@
         </form>
     </div>
 
-    <script src="scripts.js"></script>
 
-  <footer class="footer">
-  	 <div class="container">
-  	 	<div class="row">
-  	 		<div class="footer-col">
-  	 			<h4>Navigation</h4>
-  	 			<ul>
-  	 				<li><a href="index.html">home</a></li>
-  	 				<li><a href="about.html">about</a></li>
-  	 				<li><a href="discord.com">join us</a></li>
-  	 				<li><a href="affiliations.html">affiliate program</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>Resources</h4>
-  	 			<ul>
-  	 				<li><a href="faq.html">FAQ</a></li>
-  	 				<li><a href="contact.html">Contact us</a></li>
-  	 				<li><a href="docs.html">Documentation</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>Company</h4>
-  	 			<ul>
-  	 				<li><a href="privacy.html">privacy policy</a></li>
-  	 				<li><a href="terms.html">terms of service</a></li>
-  	 				<li><a href="guidelines.html">Guidelines</a></li>
-  	 				<li><a href="company.html">Company information</a></li>
-  	 			</ul>
-  	 		</div>
-  	 		<div class="footer-col">
-  	 			<h4>follow us</h4>
-  	 			<div class="social-links">
-  	 				<a href="#"><i class="fab fa-facebook-f"></i></a>
-  	 				<a href="#"><i class="fab fa-twitter"></i></a>
-  	 				<a href="#"><i class="fab fa-instagram"></i></a>
-  	 				<a href="#"><i class="fab fa-linkedin-in"></i></a>
-<a href="#"><i class="fab fa-discord"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
-  	 			</div>
-  	 		</div>
-  	 	</div>
-  	 </div>
-  </footer>
+<footer class="footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="premium.html">Premium</a></li>
+                        <li><a href="https://discord.gg/8v6XFPzHCd">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="guidelines.html">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="spacer"></div>
+        <p>© 2024 Alex1061 All rights reserved.</p>
+    </footer>
+
+  <script src="scripts.js"></script>
 
 </body>
 </html>
