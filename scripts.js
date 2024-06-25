@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profile-pic');
     const profileName = document.getElementById('profile-name');
     const dropdownContent = document.getElementById('dropdown-content');
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.navb-links');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
 
@@ -34,12 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const getUserInfo = async (token) => {
-        const response = await fetch('https://discord.com/api/users/@me', {
-            headers: {
-                Authorization: `Bearer ${token}`
+        try {
+            const response = await fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Invalid token');
             }
-        });
-        return response.json();
+        } catch (error) {
+            return null;
+        }
     };
 
     const displayProfile = (user) => {
@@ -65,7 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (storedToken) {
             const user = await getUserInfo(storedToken);
-            displayProfile(user);
+            if (user) {
+                displayProfile(user);
+            } else {
+                localStorage.removeItem('discord_access_token');
+                loginBtn.style.display = 'block';
+                profilePic.style.display = 'none';
+            }
         } else {
             loginBtn.style.display = 'block';
             profilePic.style.display = 'none';
@@ -74,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initialize();
 
-        profilePic.addEventListener('click', function(event) {
+    profilePic.addEventListener('click', function(event) {
         event.stopPropagation();
         dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
     });
@@ -84,82 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContent.style.display = 'none';
         }
     });
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-
 })
-
-const express = require('express');
-const nodemailer = require('nodemailer');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
-
-const app = express();
-const port = 3000;
-
-// Configure storage for uploaded files
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname);
-  }
-});
-
-const upload = multer({ storage: storage });
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.post('/submit-form', upload.array('attachments'), (req, res) => {
-  const { email, issueType, subject, description } = req.body;
-  const files = req.files;
-
-  // Configure nodemailer transporter
-  const transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: 'your-email@gmail.com',
-      pass: 'your-email-password'
-    }
-  });
-
-  // Create email options
-  let mailOptions = {
-    from: email,
-    to: 'lacrp.managment@gmail.com',
-    subject: subject,
-    html: `
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Issue Type:</strong> ${issueType}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Description:</strong> ${description}</p>
-    `,
-    attachments: files.map(file => {
-      return {
-        filename: file.originalname,
-        path: path.join(__dirname, file.path)
-      };
-    })
-  };
-
-  // Send email
-  transporter.sendMail(mailOptions, (error, info) => {
-    // Remove uploaded files after sending email
-    files.forEach(file => fs.unlinkSync(path.join(__dirname, file.path)));
-
-    if (error) {
-      return res.status(500).send('Failed to send email.');
-    }
-    res.send('Email sent successfully.');
-  });
-});
-
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
