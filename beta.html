@@ -37,7 +37,7 @@
                     <a href="#" id="logout-btn">Log Out</a>
                 </div>
             </div>
-                    <button id="login-btn" class="btn btn-primary">Login</button>
+            <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
         </div>
         
         <div class="hero-content">
@@ -46,7 +46,6 @@
             <a href="dashboard.html" class="btn btn-primary">Get Started</a>
         </div>
     </header>
-
 
     <section class="about" id="about">
         <div class="container">
@@ -138,11 +137,19 @@
                     </div>
                 </div>
             </div>
+            <div class="language-selector">
+                <label for="language-selector">Language: </label>
+                <select id="language-selector">
+                    <option value="en" selected>English</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <!-- Add more languages as needed -->
+                </select>
+            </div>
+            <p>&copy; 2024 Alex1061 All rights reserved.</p>
         </div>
-            <div class="spacer"></div>
-        <p>&copy; 2024 Alex1061 All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
