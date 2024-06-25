@@ -96,4 +96,4 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContent.style.display = 'none';
         }
     });
-})
+});
