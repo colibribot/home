@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logout-btn');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.navb-links');
-    const welcomeName = document.getElementById('profileName'); // Add this line to get the span for the welcome message
+const welcomeName = document.querySelector('.profileName'); // Add this line to get the span for the welcome message
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
