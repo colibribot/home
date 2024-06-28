@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         profileName.textContent = user.username;
         profilePic.style.display = 'block';
          if (welcomeName) {
-            welcomeName.textContent = user.username; // Add this line to update the welcome message
+            welcomeName.textContent = user.username;
         }
     };
 
