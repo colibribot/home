@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const RESPONSE_TYPE = 'token';
     const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
-const BACKEND_URL = 'https://colibribot.github.io/home/beta.html/log-user';
+const BACKEND_URL = 'server.js';
 
     const getLoginURL = () => {
         const params = new URLSearchParams({
