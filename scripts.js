@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
         profilePic.style.display = 'block';
+         if (welcomeName) {
+            welcomeName.textContent = user.username; // Add this line to update the welcome message
+        }
     };
 
     loginBtn.addEventListener('click', handleLogin);
