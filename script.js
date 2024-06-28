@@ -4,13 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
-    const languageSelector = document.getElementById('language-selector');
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
     const RESPONSE_TYPE = 'token';
-    const SCOPE = 'identify email';  // Make sure to include 'email' in the scope
+    const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
     const WEBHOOK_URL = 'https://discord.com/api/webhooks/1243196183640277032/H46qVRuI2XvANY67HWcqYOpacBOJh1TOMi5Ibgh2axVBLVvOeTzmnKWEf1xnBEbd3ho9';  // Replace with your actual webhook URL
 
@@ -91,26 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
         profilePic.style.display = 'block';
     };
 
-    const loadLanguage = async (language) => {
-        try {
-            const response = await fetch(`languages/${language}.json`);
-            const translations = await response.json();
-            document.querySelectorAll('[data-translate]').forEach(element => {
-                const key = element.getAttribute('data-translate');
-                element.textContent = translations[key];
-            });
-        } catch (error) {
-            console.error('Error loading language file:', error);
-        }
-    };
-
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
-    languageSelector.addEventListener('change', (event) => {
-        const selectedLanguage = event.target.value;
-        localStorage.setItem('selected_language', selectedLanguage);
-        loadLanguage(selectedLanguage);
-    });
 
     const initialize = async () => {
         const params = new URLSearchParams(window.location.hash.substring(1));
@@ -122,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const storedToken = localStorage.getItem('discord_access_token');
+
         if (storedToken) {
             const user = await getUserInfo(storedToken);
             if (user) {
@@ -137,10 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             loginBtn.style.display = 'block';
             profilePic.style.display = 'none';
         }
-
-        const savedLanguage = localStorage.getItem('selected_language') || 'en';
-        languageSelector.value = savedLanguage;
-        loadLanguage(savedLanguage);
     };
 
     initialize();
