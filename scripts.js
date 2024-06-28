@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
+        const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.navb-links');
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
@@ -96,4 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContent.style.display = 'none';
         }
     });
-});
+
+       hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    
+})
