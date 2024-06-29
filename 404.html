@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="404.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="bot.jpg">
 </head>
 <body>
+
+    <header class="hero-section">
+        <div class="header-container flex">
+            <a href="index.html" class="logo">Colibri</a>
+            <nav class="nav">
+                <ul class="navb-links">
+                    <li><a href="https://discord.gg/8v6XFPzHCd">Discord</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="docs.html">Documentation</a></li>
+                    <li><a href="https://discord.com/api/oauth2/authorize?client_id=1156663455399563289&amp;permissions=8&amp;scope=bot%20applications.commands">Invite</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            <div class="profile">
+                <div class="profile-trigger">
+                    <img id="profile-pic" src="https://cdn.discordapp.com/avatars/697051690800644136/8213af763ccac836ba9bc5837970bf67.png" alt="Profile Picture" class="profile-pic" style="display: block;">
+                </div>
+                <div id="dropdown-content" class="dropdown-content">
+                    <p id="profile-name">alex1061</p>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="premium.html">Premium</a>
+                    <a href="#" id="logout-btn">Log Out</a>
+                </div>
+            </div>
+            <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Welcome to Colibri Dashboard</h1>
+            <h3>Effortlessly manage your Discord server with powerful and intuitive tools.</h3>
+            <a href="dashboard.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </header>
+
+    
     <div class="container">
         <div class="error-message">
             <h1>404</h1>
@@ -16,5 +55,48 @@
             <a href="index.html" class="btn">Go Back Home</a>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="docs.html">Documentation</a></li>
+                        <li><a href="premium.html">Premium</a></li>
+                        <li><a href="https://discord.gg/8v6XFPzHCd">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="guidelines.html">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="spacer"></div>
+        <p>© 2024 Alex1061 All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
