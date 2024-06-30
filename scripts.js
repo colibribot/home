@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-        const getUserGuilds = async (token) => {
+    const getUserGuilds = async (token) => {
         try {
             const response = await fetch('https://discord.com/api/users/@me/guilds', {
                 headers: {
@@ -62,9 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 return response.json();
             } else {
+                console.error('Failed to fetch guilds:', response.status);
                 throw new Error('Failed to fetch guilds');
             }
         } catch (error) {
+            console.error('Error fetching guilds:', error);
             return [];
         }
     };
@@ -79,6 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const displayGuilds = (guilds) => {
         guildsContainer.innerHTML = ''; // Clear any existing guilds
+        console.log('Guilds:', guilds); // Debugging information
+
+        if (guilds.length === 0) {
+            guildsContainer.innerHTML = '<p>No guilds found.</p>';
+        }
+
         guilds.forEach(guild => {
             const guildElement = document.createElement('div');
             guildElement.classList.add('guild');
