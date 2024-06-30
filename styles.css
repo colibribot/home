@@ -428,21 +428,24 @@ a {
 .guilds-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
+    justify-content: center;
 }
 
-.guild-card {
-    width: 150px;
-    padding: 20px;
-    background-color: #2f3136;
-    border-radius: 8px;
-    color: white;
+.guild {
+    width: 100px;
     text-align: center;
+    margin: 10px;
 }
 
-.guild-card img {
+.guild img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
+}
+
+.guild p {
+    font-size: 12px;
+    margin-top: 5px;
 }
 
 .dcontainer {
