@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profile-pic');
     const profileName = document.getElementById('profile-name');
+    const profileNameSpan = document.getElementById('profileName'); // Reference to the welcome span
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
+        profileNameSpan.textContent = user.username; // Display username in welcome span
         profilePic.style.display = 'block';
     };
     
