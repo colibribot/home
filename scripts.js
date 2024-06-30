@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logout-btn');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.navb-links');
-const welcomeName = document.querySelector('.profileName'); // Add this line to get the span for the welcome message
+    const guildsContainer = document.getElementById('guilds');
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
@@ -51,16 +51,48 @@ const welcomeName = document.querySelector('.profileName'); // Add this line to 
         }
     };
 
+        const getUserGuilds = async (token) => {
+        try {
+            const response = await fetch('https://discord.com/api/users/@me/guilds', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch guilds');
+            }
+        } catch (error) {
+            return [];
+        }
+    };
+
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
         profilePic.style.display = 'block';
-         if (welcomeName) {
-            welcomeName.textContent = user.username;
-        }
     };
+    
+    const displayGuilds = (guilds) => {
+        guildsContainer.innerHTML = ''; // Clear any existing guilds
+        guilds.forEach(guild => {
+            const guildElement = document.createElement('div');
+            guildElement.classList.add('guild');
 
+            const guildIcon = guild.icon ? 
+                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 
+                'default-icon.png'; // Use a default icon if the guild doesn't have one
+
+            guildElement.innerHTML = `
+                <img src="${guildIcon}" alt="${guild.name}">
+                <p>${guild.name}</p>
+            `;
+            guildsContainer.appendChild(guildElement);
+        });
+    };
+    
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
 
