@@ -71,6 +71,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const getBotGuilds = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/bot-guilds'); // Adjust URL if necessary
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('Failed to fetch bot guilds:', response.status);
+                throw new Error('Failed to fetch bot guilds');
+            }
+        } catch (error) {
+            console.error('Error fetching bot guilds:', error);
+            return [];
+        }
+    };
+
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
@@ -84,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Guilds:', guilds); // Debugging information
 
         if (guilds.length === 0) {
-            guildsContainer.innerHTML = '<p>No guilds found.</p>';
+            guildsContainer.innerHTML = '<p>No common guilds found.</p>';
         }
 
         guilds.forEach(guild => {
@@ -120,9 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (storedToken) {
             const user = await getUserInfo(storedToken);
             if (user) {
-                const guilds = await getUserGuilds(storedToken);
-                displayGuilds(guilds);
                 displayProfile(user);
+                const userGuilds = await getUserGuilds(storedToken);
+                const botGuilds = await getBotGuilds();
+                const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
+                displayGuilds(commonGuilds);
             } else {
                 localStorage.removeItem('discord_access_token');
                 loginBtn.style.display = 'block';
