@@ -128,4 +128,9 @@ const BACKEND_URL = 'server.js';
             dropdownContent.style.display = 'none';
         }
     });
+
+        hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+        hamburger.classList.toggle('toggle');
+    });
 });
