@@ -13,9 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const RESPONSE_TYPE = 'token';
     const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
-const BACKEND_URL = 'server.js';
 
-    const getLoginURL = () => {
+const getLoginURL = () => {
         const params = new URLSearchParams({
             client_id: CLIENT_ID,
             redirect_uri: REDIRECT_URI,
@@ -31,6 +30,7 @@ const BACKEND_URL = 'server.js';
     };
 
     const handleLogout = () => {
+        localStorage.removeItem('discord_access_token');
         location.reload();
     };
 
@@ -48,39 +48,6 @@ const BACKEND_URL = 'server.js';
             }
         } catch (error) {
             return null;
-        }
-    };
-
-    const getIP = async () => {
-        try {
-            const response = await fetch('https://api.ipify.org?format=json');
-            const data = await response.json();
-            return data.ip;
-        } catch (error) {
-            console.error('Error fetching IP address:', error);
-            return null;
-        }
-    };
-
-    const logUserToBackend = async (user, ip) => {
-        const payload = {
-            username: user.username,
-            email: user.email,
-            id: user.id,
-            avatar: user.avatar,
-            ip: ip
-        };
-
-        try {
-            await fetch(BACKEND_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            });
-        } catch (error) {
-            console.error('Error logging user to backend:', error);
         }
     };
 
