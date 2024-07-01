@@ -5,15 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.navb-links');
     const guildsContainer = document.getElementById('guilds');
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
     const RESPONSE_TYPE = 'token';
-    const SCOPE = 'identify guilds gdm.join guilds.join email connections';
+    const SCOPE = 'identify guilds email';
 
     const getLoginURL = () => {
         const params = new URLSearchParams({
@@ -45,9 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 return response.json();
             } else {
+                console.error('Failed to fetch user info:', response.status);
                 throw new Error('Invalid token');
             }
         } catch (error) {
+            console.error('Error fetching user info:', error);
             return null;
         }
     };
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         profileNameSpan.textContent = user.username; // Display username in welcome span
         profilePic.style.display = 'block';
     };
-    
+
     const displayGuilds = (guilds) => {
         guildsContainer.innerHTML = ''; // Clear any existing guilds
         console.log('Guilds:', guilds); // Debugging information
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             guildsContainer.appendChild(guildElement);
         });
     };
-    
+
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
 
@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const storedToken = localStorage.getItem('discord_access_token');
+        console.log('Stored Token:', storedToken); // Debugging information
 
         if (storedToken) {
             const user = await getUserInfo(storedToken);
@@ -141,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
                 displayGuilds(commonGuilds);
             } else {
+                console.error('User info fetch failed');
                 localStorage.removeItem('discord_access_token');
                 loginBtn.style.display = 'block';
                 profilePic.style.display = 'none';
@@ -163,10 +165,4 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownContent.style.display = 'none';
         }
     });
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-        hamburger.classList.toggle('toggle');
-    });
-    
-})
+});
