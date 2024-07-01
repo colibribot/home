@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profile-pic');
     const profileName = document.getElementById('profile-name');
+    const profileNameSpan = document.getElementById('profileName'); // Reference to the welcome span
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
-
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.navb-links');
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
