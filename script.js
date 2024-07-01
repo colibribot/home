@@ -55,6 +55,7 @@ const getLoginURL = () => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
+        profileNameSpan.textContent = user.username; // Display username in welcome span
         profilePic.style.display = 'block';
     };
 
@@ -66,16 +67,20 @@ const getLoginURL = () => {
         const accessToken = params.get('access_token');
 
         if (accessToken) {
+            localStorage.setItem('discord_access_token', accessToken);
             window.location.hash = '';
         }
 
-        if (accessToken) {
-            const user = await getUserInfo(accessToken);
+        const storedToken = localStorage.getItem('discord_access_token');
+
+        if (storedToken) {
+            const user = await getUserInfo(storedToken);
             if (user) {
+                const guilds = await getUserGuilds(storedToken);
+                displayGuilds(guilds);
                 displayProfile(user);
-                const ip = await getIP();
-                logUserToBackend(user, ip);
             } else {
+                localStorage.removeItem('discord_access_token');
                 loginBtn.style.display = 'block';
                 profilePic.style.display = 'none';
             }
