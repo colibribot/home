@@ -120,6 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (storedToken) {
             const user = await getUserInfo(storedToken);
             if (user) {
+                const guilds = await getUserGuilds(storedToken);
+                displayGuilds(guilds);
                 displayProfile(user);
             } else {
                 localStorage.removeItem('discord_access_token');
