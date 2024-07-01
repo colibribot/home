@@ -152,4 +152,4 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('toggle');
     });
     
-});
+})
