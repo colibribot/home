@@ -52,6 +52,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+        const getUserGuilds = async (token) => {
+        try {
+            const response = await fetch('https://discord.com/api/users/@me/guilds', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('Failed to fetch guilds:', response.status);
+                throw new Error('Failed to fetch guilds');
+            }
+        } catch (error) {
+            console.error('Error fetching guilds:', error);
+            return [];
+        }
+    };
 
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
@@ -59,6 +77,38 @@ document.addEventListener('DOMContentLoaded', () => {
         profileName.textContent = user.username;
         profileNameSpan.textContent = user.username; // Display username in welcome span
         profilePic.style.display = 'block';
+    };
+
+        const displayProfile = (user) => {
+        loginBtn.style.display = 'none';
+        profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+        profileName.textContent = user.username;
+        profileNameSpan.textContent = user.username; // Display username in welcome span
+        profilePic.style.display = 'block';
+    };
+    
+    const displayGuilds = (guilds) => {
+        guildsContainer.innerHTML = ''; // Clear any existing guilds
+        console.log('Guilds:', guilds); // Debugging information
+
+        if (guilds.length === 0) {
+            guildsContainer.innerHTML = '<p>No guilds found.</p>';
+        }
+
+        guilds.forEach(guild => {
+            const guildElement = document.createElement('div');
+            guildElement.classList.add('guild');
+
+            const guildIcon = guild.icon ? 
+                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 
+                'default-icon.png'; // Use a default icon if the guild doesn't have one
+
+            guildElement.innerHTML = `
+                <img src="${guildIcon}" alt="${guild.name}">
+                <p>${guild.name}</p>
+            `;
+            guildsContainer.appendChild(guildElement);
+        });
     };
     
     loginBtn.addEventListener('click', handleLogin);
