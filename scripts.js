@@ -52,24 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-        const getUserGuilds = async (token) => {
-        try {
-            const response = await fetch('https://discord.com/api/users/@me/guilds', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            if (response.ok) {
-                return response.json();
-            } else {
-                console.error('Failed to fetch guilds:', response.status);
-                throw new Error('Failed to fetch guilds');
-            }
-        } catch (error) {
-            console.error('Error fetching guilds:', error);
-            return [];
-        }
-    };
+
 
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
