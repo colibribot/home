@@ -206,6 +206,7 @@ body.dark-mode {
 }
 
 footer {
+    border-top: 1px solid #ddd;
     background-color: inherit;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
