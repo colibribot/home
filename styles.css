@@ -207,10 +207,11 @@ body.dark-mode {
 
 footer {
     border-top: 1px solid #ddd;
-    background-color: inherit;
+    background-color: #f8f8f8;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
     font-size: 14px;
+    color: #333;
 }
 
 .footer-container {
@@ -243,7 +244,7 @@ footer {
 
 .footer-column ul li a {
     text-decoration: none;
-    color: inherit;
+    color: #333;
     transition: color 0.3s;
 }
 
@@ -292,7 +293,7 @@ footer {
 
 .service__link {
     text-decoration: none;
-    color: inherit;
+    color: #333;
     transition: color 0.3s;
 }
 
@@ -300,23 +301,6 @@ footer {
     color: #0078d7;
 }
 
-.theme-toggle-label {
-    cursor: pointer;
-    color: inherit;
-}
-
-.theme-toggle {
-    display: none;
-}
-
-.theme-toggle + .theme-toggle-label::before {
-    content: '🌞';
-    margin-right: 8px;
-}
-
-.theme-toggle:checked + .theme-toggle-label::before {
-    content: '🌙';
-}
 
 
 
