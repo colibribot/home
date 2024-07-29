@@ -266,29 +266,7 @@ footer {
     color: #0078d7;
 }
 
-@media (max-width: 991px) {
-    .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-}
 
-@media (max-width: 600px) {
-    .card-grid {
-        grid-template-columns: 1fr;
-    }
-    .footer-cols {
-        flex-direction: column;
-        align-items: center;
-    }
-}
 
 .header-container.flex {
     display: flex;
