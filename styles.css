@@ -396,6 +396,7 @@ footer {
 
     .navbar-links.open {
         display: flex;
+        margin-top: 20px;
     }
 
     .navbar-icons, .profile-section {
