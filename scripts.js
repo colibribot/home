@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+
+
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
@@ -60,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         profilePic.style.display = 'block';
     };
 
+
+    
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
 
@@ -106,4 +110,5 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('toggle');
     });
+    
 })
