@@ -396,7 +396,6 @@ footer {
 
     .navbar-links.open {
         display: flex;
-        margin-top: 20px;
     }
 
     .navbar-icons, .profile-section {
@@ -477,9 +476,7 @@ footer {
         align-items: center;
     }
 
-    .profile {
-        margin-top: 20px; /* Add space between profile dropdown and login button */
-    }
+
 
     .btn-primary {
         margin-top: 20px; /* Adjust top margin of login button */
