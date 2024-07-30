@@ -288,7 +288,7 @@ footer {
 }
 
 .navbar {
-    background-color: #7289da; /* Discord theme color */
+    background-color: #f8f8f8; /* Discord theme color */
     color: #fff;
     position: sticky;
     top: 0;
@@ -324,7 +324,7 @@ footer {
 
 .navbar-item a {
     text-decoration: none;
-    color: #fff;
+    color: #333;
     padding: 10px 15px;
     font-weight: bold;
     transition: color 0.3s;
