@@ -288,15 +288,22 @@ footer {
 }
 
 .navbar {
+    background-color: #7289da; /* Discord theme color */
+    color: #fff;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: 10px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .navbar-logo .logo {
@@ -304,38 +311,27 @@ footer {
 }
 
 .navbar-links {
-    list-style: none;
     display: flex;
-    gap: 20px;
+    list-style: none;
     margin: 0;
     padding: 0;
+    gap: 15px;
 }
 
-.navbar-links li {
-    display: inline;
-}
-
-.navbar-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
+.navbar-item {
     position: relative;
 }
 
-.navbar-links a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 3px;
-    background: #007bff;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
+.navbar-item a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.navbar-links a:hover::after {
-    width: 100%;
+.navbar-item a:hover {
+    color: #99aab5; /* Lighter Discord color */
 }
 
 .navbar-icons {
@@ -343,18 +339,13 @@ footer {
     gap: 15px;
 }
 
-.navbar-icons .icon-link {
-    text-decoration: none;
-    position: relative;
-}
-
-.navbar-icons .icon-link img {
+.icon-link img {
     height: 24px;
     width: 24px;
     transition: transform 0.3s;
 }
 
-.navbar-icons .icon-link:hover img {
+.icon-link:hover img {
     transform: scale(1.1);
 }
 
@@ -362,15 +353,15 @@ footer {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 4px;
+    gap: 5px;
 }
 
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: #333;
+    background-color: #fff;
     border-radius: 3px;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: all 0.3s;
 }
 
 @media (max-width: 768px) {
@@ -379,7 +370,7 @@ footer {
         top: 60px;
         left: 0;
         width: 100%;
-        background: #fff;
+        background-color: #7289da;
         flex-direction: column;
         align-items: center;
         gap: 10px;
@@ -460,19 +451,7 @@ footer {
 }
 
 /* Hamburger Menu Styles */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
 
-.hamburger span {
-    height: 2px;
-    width: 25px;
-    background-color: #fff;
-    margin: 4px;
-    border-radius: 5px;
-}
 
 @media (max-width: 768px) {
     .header-container.flex {
