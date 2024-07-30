@@ -288,7 +288,7 @@ footer {
 }
 
 .navbar {
-    background-color: #b8b8b8; /* Discord theme color */
+    background-color: #f8f8f8; /* Discord theme color */
     color: #fff;
     position: relative;
     top: 0;
@@ -376,7 +376,7 @@ footer {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #333;
     border-radius: 3px;
     transition: all 0.3s;
 }
@@ -387,7 +387,7 @@ footer {
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: #b8b8b8;
+        background-color: #f8f8f8;
         flex-direction: column;
         align-items: center;
         gap: 10px;
