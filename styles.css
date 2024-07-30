@@ -31,13 +31,7 @@ a {
     margin-bottom: 20px;
 }
 
-.navbar {
-    background-color: #1c1c1c;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 
 .container {
     max-width: 1170px;
@@ -51,26 +45,7 @@ a {
     color: #e91e63;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
 
-.nav-links li a {
-    color: #e0e0e0;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: #e91e63;
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
 
 .btn {
     padding: 10px 20px;
@@ -316,9 +291,12 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    background-color: white;
+    padding: 15px 20px;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .navbar-logo .logo {
@@ -341,10 +319,23 @@ footer {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    position: relative;
 }
 
-.navbar-links a:hover {
-    color: #007bff;
+.navbar-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #007bff;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
 }
 
 .navbar-icons {
@@ -352,14 +343,75 @@ footer {
     gap: 15px;
 }
 
-.navbar-icons a {
+.navbar-icons .icon-link {
     text-decoration: none;
+    position: relative;
 }
 
-.navbar-icons img {
+.navbar-icons .icon-link img {
     height: 24px;
     width: 24px;
+    transition: transform 0.3s;
 }
+
+.navbar-icons .icon-link:hover img {
+    transform: scale(1.1);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    border-radius: 3px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        display: none;
+    }
+
+    .navbar-links.open {
+        display: flex;
+    }
+
+    .navbar-icons {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+
 .profile {
     position: relative;
     display: flex;
@@ -436,26 +488,7 @@ footer {
         margin-top: 20px; /* Adjust top margin of login button */
     }
 
-    .hamburger {
-        margin-top: 20px; /* Add space between hamburger menu and login button */
-    }
 
-    .navb-links {
-        display: none; /* Hide the nav links by default on smaller screens */
-        flex-direction: column;
-        width: 100%;
-        background-color: #150c21;
-        margin-top: 20px; /* Add space between hamburger menu and nav links */
-    }
-
-    .navb-links.active {
-        display: flex;
-    }
-    
-    .hamburger {
-        display: flex;
-        margin-top: 20px; /* Add space between hamburger menu and login button */
-    }
 
     .profile-trigger {
         padding-left: 10px; /* Adjust profile trigger padding */
