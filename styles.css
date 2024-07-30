@@ -349,6 +349,23 @@ footer {
     transform: scale(1.1);
 }
 
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-pic {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-weight: bold;
+    color: #fff;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -381,7 +398,7 @@ footer {
         display: flex;
     }
 
-    .navbar-icons {
+    .navbar-icons, .profile-section {
         display: none;
     }
 
