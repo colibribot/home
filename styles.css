@@ -182,11 +182,11 @@ body.dark-mode {
 
 footer {
     border-top: 1px solid #ddd;
-    background-color: #f8f8f8;
+    background-color: #1c1c1c;;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    color: #333;
+    color: #e91e63;
 }
 
 .footer-container {
@@ -219,7 +219,7 @@ footer {
 
 .footer-column ul li a {
     text-decoration: none;
-    color: #333;
+    color: #b0b0b0;
     transition: color 0.3s;
 }
 
@@ -268,7 +268,7 @@ footer {
 
 .service__link {
     text-decoration: none;
-    color: #333;
+    color: #b0b0b0;
     transition: color 0.3s;
 }
 
