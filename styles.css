@@ -614,33 +614,6 @@ a {
     color: #6c757d;
 }
 
-body.light-mode {
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
-}
-
-body.dark-mode {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
-}
-
-.theme-toggle-label {
-    cursor: pointer;
-    color: inherit;
-}
-
-#theme-toggle {
-    display: none;
-}
-
-.theme-toggle + .theme-toggle-label::before {
-    content: '🌞';
-    margin-right: 8px;
-}
-
-.theme-toggle:checked + .theme-toggle-label::before {
-    content: '🌙';
-}
 .dark-mode {
   background-color: black;
   color: white;
