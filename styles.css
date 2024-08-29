@@ -163,22 +163,7 @@ a {
     margin-bottom: 30px;
 }
 
-:root {
-    --background-color-light: #f8f8f8;
-    --background-color-dark: #333;
-    --text-color-light: #333;
-    --text-color-dark: #f8f8f8;
-}
 
-body.light-mode {
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
-}
-
-body.dark-mode {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
-}
 
 footer {
     border-top: 1px solid #ddd;
