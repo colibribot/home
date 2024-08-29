@@ -629,7 +629,7 @@ body.dark-mode {
     color: inherit;
 }
 
-.theme-toggle {
+#theme-toggle {
     display: none;
 }
 
