@@ -114,9 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('toggle');
     });
     
-function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
+
     
 })
