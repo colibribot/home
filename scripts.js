@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.navb-links');
     const guildsContainer = document.getElementById('guilds');
+        const themeToggle = document.getElementById('theme-toggle');
+
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
@@ -52,7 +54,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const setTheme = (theme) => {
+        document.body.classList.remove('light-mode', 'dark-mode');
+        document.body.classList.add(`${theme}-mode`);
+        localStorage.setItem('theme', theme);
+    };
 
+        const storedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(storedTheme);
+
+    if (storedTheme === 'dark') {
+        themeToggle.checked = true;
+    }
+
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    });
 
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
