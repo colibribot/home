@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.navb-links');
     const guildsContainer = document.getElementById('guilds');
-        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggle = document.querySelector('theme-toggle');
 
 
     const CLIENT_ID = '1156663455399563289';
