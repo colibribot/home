@@ -67,13 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.checked = true;
     }
 
-    themeToggle.addEventListener('change', () => {
-        if (themeToggle.checked) {
-            setTheme('dark');
-        } else {
-            setTheme('light');
-        }
-    });
+
 
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
@@ -131,5 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('toggle');
     });
-    
+
+        themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    });
 })
