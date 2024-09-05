@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.navb-links');
+    const navLinks = document.querySelector('.navbar-links');
     const guildsContainer = document.getElementById('guilds');
 
 
@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
-        profileNameSpan.textContent = user.username; // Display username in welcome span
         profilePic.style.display = 'block';
     };
 
