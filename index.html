@@ -11,21 +11,21 @@
 <body>
     
     <header class="hero-section">
-        <div class="header-container flex">
-            <a href="index.html" class="logo">Colibri</a>
-            <nav class="nav">
-                <ul class="navb-links">
-                    <li><a href="discord.html">Discord</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="docs.html">Documentation</a></li>
-                    <li><a href="invite.html">Invite</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="bot.jpg" alt="Bot Logo" class="logo">
+                </a>
+            </div>
+            <ul class="navbar-links">
+                <li class="navbar-item"><a href="index.html">Home</a></li>
+                <li class="navbar-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="navbar-item"><a href="docs.html">Documentation</a></li>
+                <li class="navbar-item"><a href="commmands.html">Commands</a></li>
+                <li class="navbar-item"><a href="contact.html">Support</a></li>
+            </ul>
+
             <div class="profile">
                 <div class="profile-trigger">
                     <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
@@ -37,8 +37,14 @@
                     <a href="#" id="logout-btn">Log Out</a>
                 </div>
             </div>
-            <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+                                <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
         </div>
+    </nav>
         
         <div class="hero-content">
             <h1>Welcome to Colibri Dashboard</h1>
