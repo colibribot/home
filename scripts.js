@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.navbar-links');
     const guildsContainer = document.getElementById('guilds');
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
 
 
     const CLIENT_ID = '1156663455399563289';
@@ -113,6 +114,15 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('toggle');
     });
     
+    // Dark mode toggle function
+    function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
 
+    // Add event listener for dark mode toggle button
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', myFunction);
+    }
     
 })
