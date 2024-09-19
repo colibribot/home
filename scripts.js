@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const guildsContainer = document.getElementById('guilds');
     const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
@@ -54,10 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-
-
-
-
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
@@ -65,8 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
         profilePic.style.display = 'block';
     };
 
-
-    
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
 
@@ -113,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('toggle');
     });
-    
+
     // Dark mode toggle function
     function myFunction() {
         var element = document.body;
@@ -124,5 +117,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', myFunction);
     }
-    
 })
