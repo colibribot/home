@@ -54,9 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
         // Add event listener for dark mode toggle button
-    if (darkModeToggle) {
         darkModeToggle.addEventListener('click', myFunction);
-    }
+    
 
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
@@ -116,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function myFunction() {
         var element = document.body;
         element.classList.toggle("dark-mode");
-    };
+    }
 
 
 })
