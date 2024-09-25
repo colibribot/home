@@ -110,13 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Dark mode toggle function
+    // Define the function inside DOMContentLoaded
     function myFunction() {
         var element = document.body;
         element.classList.toggle("dark-mode");
     }
 
-        if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', myFunction);
-    }
+    // Add event listener to the button
+    darkModeToggle.addEventListener('click', myFunction);
 
 })
