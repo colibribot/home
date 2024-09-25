@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.navbar-links');
     const guildsContainer = document.getElementById('guilds');
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
@@ -109,14 +108,5 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('toggle');
     });
 
-    // Dark mode toggle function
-    // Define the function inside DOMContentLoaded
-    function myFunction() {
-        var element = document.body;
-        element.classList.toggle("dark-mode");
-    }
-
-    // Add event listener to the button
-        darkModeToggle.addEventListener('click', myFunction);
     
 })
