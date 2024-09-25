@@ -1,4 +1,2 @@
-node_modules
-config.json
-.DS_Store
+extension/node_modules/*
 .env
