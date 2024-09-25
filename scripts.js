@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Add event listener to the button
-    darkModeToggle.addEventListener('click', myFunction);
-
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', myFunction);
+    }
 })
