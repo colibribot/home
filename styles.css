@@ -656,6 +656,7 @@ a {
 
 .feature-image img {
   max-width: 100%;
+  max-height: 200px;
   border-radius: 15px;
 }
 
