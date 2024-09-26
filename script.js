@@ -129,19 +129,5 @@ const getLoginURL = () => {
 
     initialize();
 
-    profilePic.addEventListener('click', function(event) {
-        event.stopPropagation();
-        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-    });
 
-    window.addEventListener('click', function(event) {
-        if (!event.target.closest('.profile')) {
-            dropdownContent.style.display = 'none';
-        }
-    });
-
-        hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-        hamburger.classList.toggle('toggle');
-    });
 })
