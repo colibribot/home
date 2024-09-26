@@ -36,6 +36,23 @@ const getLoginURL = () => {
         location.reload();
     };
 
+        const getUserGuilds = async (token) => {
+        try {
+            const response = await fetch('https://discord.com/api/users/@me/guilds', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch guilds');
+            }
+        } catch (error) {
+            return [];
+        }
+    };
+
     const getUserInfo = async (token) => {
         try {
             const response = await fetch('https://discord.com/api/users/@me', {
@@ -59,6 +76,24 @@ const getLoginURL = () => {
         profileName.textContent = user.username;
         profileNameSpan.textContent = user.username; // Display username in welcome span
         profilePic.style.display = 'block';
+    };
+
+        const displayGuilds = (guilds) => {
+        guildsContainer.innerHTML = ''; // Clear any existing guilds
+        guilds.forEach(guild => {
+            const guildElement = document.createElement('div');
+            guildElement.classList.add('guild');
+
+            const guildIcon = guild.icon ? 
+                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 
+                'default-icon.png'; // Use a default icon if the guild doesn't have one
+
+            guildElement.innerHTML = `
+                <img src="${guildIcon}" alt="${guild.name}">
+                <p>${guild.name}</p>
+            `;
+            guildsContainer.appendChild(guildElement);
+        });
     };
 
     loginBtn.addEventListener('click', handleLogin);
