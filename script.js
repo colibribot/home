@@ -144,4 +144,4 @@ const getLoginURL = () => {
         navLinks.classList.toggle('open');
         hamburger.classList.toggle('toggle');
     });
-});
+})
