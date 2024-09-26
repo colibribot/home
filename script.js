@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logout-btn');
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.navb-links');
+    const guildsContainer = document.getElementById('guilds');
+    
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
