@@ -90,7 +90,7 @@ const getLoginURL = () => {
 
             guildElement.innerHTML = `
                 <img src="${guildIcon}" alt="${guild.name}">
-                <p> href=`dashboard.html/${guild.id}`>${guild.name}</p>
+                <p>${guild.name}</p>
             `;
             guildsContainer.appendChild(guildElement);
         });
