@@ -165,11 +165,11 @@ a {
 
 footer {
     border-top: 1px solid #ddd;
-    background-color: #1c1c1c;;
+    background-color: #1c1c1c;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    color: #e91e63;
+    color: #E91E6E;
 }
 
 .footer-container {
@@ -189,6 +189,7 @@ footer {
 .footer-column h3 {
     font-weight: bold;
     margin-bottom: 10px;
+    color: #e91e63;
 }
 
 .footer-column ul {
@@ -236,6 +237,7 @@ footer {
 
 .copyright__legal {
     margin: 0;
+    color: #e91e63;
 }
 
 .service {
@@ -676,4 +678,273 @@ a {
     max-width: 100%;
   }
 }
+
+/* General Styles */
+
+
+.story-text h1, h2, h3 {
+    color: #222;
+}
+
+.story-text p {
+    color: #333;
+    line-height: 1.6;
+}
+
+.mission p {
+    color: #333;
+}
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.hero span {
+    font-weight: bold;
+}
+
+/* Mission Section */
+.mission {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.mission h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.mission-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.icon-box {
+    width: 30%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.icon-box h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Our Story Section */
+.our-story {
+    background-color: #e9ecef;
+    padding: 60px 0;
+}
+
+.story-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-text span {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.story-image {
+    flex: 1;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Team Section */
+.team {
+    background-color: #fff;
+    padding: 60px 0;
+    text-align: center;
+    padding-bottom: 150px;
+}
+
+.team h2 {
+    margin-bottom: 40px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.team-member h3 {
+    margin-top: 10px;
+}
+
+.team-member p {
+    color: #007bff;
+    margin-top: 5px;
+}
+
+/* Call to Action */
+.call-to-action {
+    background: linear-gradient(135deg, #00d4ff 0%, #007bff 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.call-to-action h2 {
+    font-size: 2.5rem;
+}
+
+.call-to-action p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+
+.cta-btn {
+    background-color: white;
+    color: #007bff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Hero Section */
+.careers-hero {
+    background-color: #007bff;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.careers-hero h1 {
+    font-size: 3rem;
+}
+
+.careers-hero p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+/* Job Listings Section */
+.careers-openings {
+    padding: 4rem 0;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.job-listing {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.job-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-item h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.apply-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.apply-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Perks Section */
+.careers-perks {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.perks-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.perk-item {
+    flex: 1;
+    max-width: 300px;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.perk-item h3 {
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+
 
