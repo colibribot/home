@@ -2,13 +2,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colibri Dashboard</title>
-    <link rel="icon" type="image/x-icon" href="bot.jpg">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/home/bot.jpg">
+    <link rel="stylesheet" href="/home/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Hero Section -->
-        
+        <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="bot.jpg" alt="Bot Logo" class="logo">
+                </a>
+            </div>
+            <ul class="navbar-links">
+                <li class="navbar-item"><a href="dashboard.html">Dashboard</a></li>
+                <li class="navbar-item"><a href="docs.html">Documentation</a></li>
+                <li class="navbar-item"><a href="commmands.html">Commands</a></li>
+                <li class="navbar-item"><a href="contact.html">Support</a></li>
+            </ul>
+
+            <div class="profile">
+                <div class="profile-trigger">
+                    <img id="profile-pic" src="https://cdn.discordapp.com/avatars/697051690800644136/d9c0c5f0713ed5419a8e276cad3abe46.png" alt="Profile Picture" class="profile-pic" style="display: block;">
+                </div>
+                <div id="dropdown-content" class="dropdown-content">
+                    <p id="profile-name">alex1061</p>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="premium.html">Premium</a>
+                    <a href="#" id="logout-btn">Log Out</a>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+                                <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
+        </div>
+    </nav>
 
     <section class="hero">
         <div class="container">
@@ -94,8 +126,9 @@
         </div>
     </section>
 
-        <script src="scripts.js"></script>
-    <script src="loadFooter.js"></script>
+        <script src="/home/scripts.js"></script>
+    <script src="/home/loadFooter.js"></script>
+
 
 
 </body></html>
