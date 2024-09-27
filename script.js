@@ -80,20 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const getBotGuilds = async () => {
-        try {
-            const response = await fetch('https://home-vert-tau.vercel.app/api/bot-guilds'); // Adjust URL if necessary
-            if (response.ok) {
-                return response.json();
-            } else {
-                console.error('Failed to fetch bot guilds:', response.status);
-                throw new Error('Failed to fetch bot guilds');
-            }
-        } catch (error) {
-            console.error('Error fetching bot guilds:', error);
-            return [];
+const getBotGuilds = async () => {
+    try {
+        const response = await fetch('https://home-vert-tau.vercel.app/api/bot-guilds'); // Adjust URL if necessary
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
         }
-    };
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching bot guilds:', error);
+        return [];
+    }
+};
+
 
     const displayAllGuilds = (userGuilds) => {
         guildsContainer.innerHTML = ''; // Clear any existing guilds
