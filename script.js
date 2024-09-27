@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
     const RESPONSE_TYPE = 'token';
-    const SCOPE = 'identify guilds email';
+    const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
     const getLoginURL = () => {
         const params = new URLSearchParams({
