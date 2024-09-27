@@ -946,5 +946,9 @@ p {
     margin-bottom: 1rem;
 }
 
+.common-guild {
+    border: 2px solid green; /* Example: highlight common guilds */
+    background-color: #f0fff0;
+}
 
 
