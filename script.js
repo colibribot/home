@@ -5,18 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.navb-links');
     const guildsContainer = document.getElementById('guilds');
-    
+
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
     const RESPONSE_TYPE = 'token';
-    const SCOPE = 'identify guilds gdm.join guilds.join email connections';
+    const SCOPE = 'identify guilds email';
 
-
-const getLoginURL = () => {
+    const getLoginURL = () => {
         const params = new URLSearchParams({
             client_id: CLIENT_ID,
             redirect_uri: REDIRECT_URI,
@@ -36,23 +33,6 @@ const getLoginURL = () => {
         location.reload();
     };
 
-        const getUserGuilds = async (token) => {
-        try {
-            const response = await fetch('https://discord.com/api/users/@me/guilds', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Failed to fetch guilds');
-            }
-        } catch (error) {
-            return [];
-        }
-    };
-
     const getUserInfo = async (token) => {
         try {
             const response = await fetch('https://discord.com/api/users/@me', {
@@ -63,10 +43,46 @@ const getLoginURL = () => {
             if (response.ok) {
                 return response.json();
             } else {
+                console.error('Failed to fetch user info:', response.status);
                 throw new Error('Invalid token');
             }
         } catch (error) {
+            console.error('Error fetching user info:', error);
             return null;
+        }
+    };
+
+    const getUserGuilds = async (token) => {
+        try {
+            const response = await fetch('https://discord.com/api/users/@me/guilds', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('Failed to fetch guilds:', response.status);
+                throw new Error('Failed to fetch guilds');
+            }
+        } catch (error) {
+            console.error('Error fetching guilds:', error);
+            return [];
+        }
+    };
+
+    const getBotGuilds = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/bot-guilds'); // Adjust URL if necessary
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('Failed to fetch bot guilds:', response.status);
+                throw new Error('Failed to fetch bot guilds');
+            }
+        } catch (error) {
+            console.error('Error fetching bot guilds:', error);
+            return [];
         }
     };
 
@@ -78,8 +94,14 @@ const getLoginURL = () => {
         profilePic.style.display = 'block';
     };
 
-        const displayGuilds = (guilds) => {
+    const displayGuilds = (guilds) => {
         guildsContainer.innerHTML = ''; // Clear any existing guilds
+        console.log('Guilds:', guilds); // Debugging information
+
+        if (guilds.length === 0) {
+            guildsContainer.innerHTML = '<p>No common guilds found.</p>';
+        }
+
         guilds.forEach(guild => {
             const guildElement = document.createElement('div');
             guildElement.classList.add('guild');
@@ -109,14 +131,18 @@ const getLoginURL = () => {
         }
 
         const storedToken = localStorage.getItem('discord_access_token');
+        console.log('Stored Token:', storedToken); // Debugging information
 
         if (storedToken) {
             const user = await getUserInfo(storedToken);
             if (user) {
-                const guilds = await getUserGuilds(storedToken);
-                displayGuilds(guilds);
                 displayProfile(user);
+                const userGuilds = await getUserGuilds(storedToken);
+                const botGuilds = await getBotGuilds();
+                const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
+                displayGuilds(commonGuilds);
             } else {
+                console.error('User info fetch failed');
                 localStorage.removeItem('discord_access_token');
                 loginBtn.style.display = 'block';
                 profilePic.style.display = 'none';
