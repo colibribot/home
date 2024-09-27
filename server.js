@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 const PORT = 3000;
 
-const BOT_TOKEN = 'YOUR_BOT_TOKEN';
+const BOT_TOKEN = 'TOKEN';
 
 app.get('/api/bot-guilds', async (req, res) => {
     try {
