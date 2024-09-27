@@ -1,31 +1,38 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const fetch = require('node-fetch');
+require('dotenv').config(); // Make sure you have this line if you are using environment variables
 
-// Initialize Discord Bot Client
-const client = new Client({
-    intents: [GatewayIntentBits.Guilds]
-});
+export default async function handler(req, res) {
+    // Enable CORS
+    res.setHeader('Access-Control-Allow-Origin', 'https://home-git-main-colibribots-projects.vercel.app/dashboard.html'); // Change '*' to your specific origin for more security
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS'); // Allow these methods
 
-const BOT_TOKEN = process.env.TOKEN;
-
-client.login(BOT_TOKEN);
-
-// Main API handler
-module.exports = async (req, res) => {
-    try {
-        if (!client.user) {
-            return res.status(500).json({ error: 'Bot is not ready' });
-        }
-
-        // Fetch the bot's guilds
-        const guilds = client.guilds.cache.map(guild => ({
-            id: guild.id,
-            name: guild.name,
-            icon: guild.icon
-        }));
-
-        res.json(guilds);
-    } catch (error) {
-        console.error('Error fetching bot guilds:', error);
-        res.status(500).json({ error: 'Failed to fetch bot guilds' });
+    if (req.method === 'OPTIONS') {
+        // Preflight request
+        return res.status(200).end();
     }
-};
+
+    const botToken = process.env.TOKEN;
+
+    if (!botToken) {
+        return res.status(500).json({ error: 'Bot token not found. Make sure to set DISCORD_BOT_TOKEN in your .env file.' });
+    }
+
+    try {
+        const response = await fetch('https://discord.com/api/v9/users/@me/guilds', {
+            headers: {
+                Authorization: `Bot ${botToken}`
+            }
+        });
+
+        if (response.ok) {
+            const botGuilds = await response.json();
+            res.status(200).json(botGuilds);
+        } else {
+            console.error('Error fetching bot guilds:', response.statusText);
+            res.status(500).json({ error: 'Failed to fetch bot guilds' });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
