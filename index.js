@@ -10,7 +10,7 @@ app.get('/api/bot-guilds', async (req, res) => {
     const botToken = process.env.TOKEN;
 
     if (!botToken) {
-        return res.status(500).json({ error: 'Bot token not found. Make sure to set DISCORD_BOT_TOKEN in your .env file.' });
+        return res.status(500).json({ error: 'Bot token not found. Make sure to set TOKEN in your .env file.' });
     }
 
     try {
