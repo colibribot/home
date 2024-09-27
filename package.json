@@ -9,7 +9,6 @@
     "discord.js": "^14.3.0"
   }
 }
-
 {
   "name": "discord-bot-api",
   "version": "1.0.0",
