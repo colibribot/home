@@ -2,8 +2,8 @@ const fetch = require('node-fetch');
 require('dotenv').config(); // Make sure you have this line if you are using environment variables
 
 export default async function handler(req, res) {
-    // Enable CORS
-    res.setHeader('Access-Control-Allow-Origin', 'https://home-git-main-colibribots-projects.vercel.app/dashboard.html'); // Change '*' to your specific origin for more security
+    // Allow requests from your front-end origin
+    res.setHeader('Access-Control-Allow-Origin', 'https://home-git-main-colibribots-projects.vercel.app'); // Replace with your front-end URL
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS'); // Allow these methods
 
     if (req.method === 'OPTIONS') {
