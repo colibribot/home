@@ -1,0 +1,8 @@
+project-root/
+│
+├── api/
+│   └── bot-guilds.js   # Your API route handling the bot guilds fetching logic
+│
+├── package.json         # Your project dependencies
+├── .env                 # Store BOT_TOKEN here locally (optional, use Vercel for environment variables)
+├── .gitignore           # Ignore node_modules and other sensitive files
