@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
     const guildsContainer = document.getElementById('guilds');
+    const commonGuildsContainer = document.getElementById('common-guilds'); // New section for common guilds
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const getBotGuilds = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/bot-guilds'); // Adjust URL if necessary
+            const response = await fetch('https://home-vert-tau.vercel.app/api/bot-guilds'); // Adjust URL if necessary
             if (response.ok) {
                 return response.json();
             } else {
@@ -86,23 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const displayProfile = (user) => {
-        loginBtn.style.display = 'none';
-        profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-        profileName.textContent = user.username;
-        profileNameSpan.textContent = user.username; // Display username in welcome span
-        profilePic.style.display = 'block';
-    };
-
-    const displayGuilds = (guilds) => {
+    const displayAllGuilds = (userGuilds) => {
         guildsContainer.innerHTML = ''; // Clear any existing guilds
-        console.log('Guilds:', guilds); // Debugging information
 
-        if (guilds.length === 0) {
-            guildsContainer.innerHTML = '<p>No common guilds found.</p>';
+        if (userGuilds.length === 0) {
+            guildsContainer.innerHTML = '<p>No guilds found.</p>';
+            return;
         }
 
-        guilds.forEach(guild => {
+        userGuilds.forEach(guild => {
             const guildElement = document.createElement('div');
             guildElement.classList.add('guild');
 
@@ -115,6 +108,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>${guild.name}</p>
             `;
             guildsContainer.appendChild(guildElement);
+        });
+    };
+
+    const displayCommonGuilds = (commonGuilds) => {
+        commonGuildsContainer.innerHTML = ''; // Clear any existing common guilds
+
+        if (commonGuilds.length === 0) {
+            commonGuildsContainer.innerHTML = '<p>No common guilds with the bot found.</p>';
+            return;
+        }
+
+        commonGuilds.forEach(guild => {
+            const guildElement = document.createElement('div');
+            guildElement.classList.add('guild common-guild'); // Add class to differentiate
+
+            const guildIcon = guild.icon ? 
+                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 
+                'default-icon.png'; // Use a default icon if the guild doesn't have one
+
+            guildElement.innerHTML = `
+                <img src="${guildIcon}" alt="${guild.name}">
+                <p>${guild.name}</p>
+            `;
+            commonGuildsContainer.appendChild(guildElement);
         });
     };
 
@@ -140,7 +157,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const userGuilds = await getUserGuilds(storedToken);
                 const botGuilds = await getBotGuilds();
                 const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
-                displayGuilds(commonGuilds);
+
+                displayAllGuilds(userGuilds);       // Display all user guilds
+                displayCommonGuilds(commonGuilds);  // Display common guilds separately
             } else {
                 console.error('User info fetch failed');
                 localStorage.removeItem('discord_access_token');
@@ -154,6 +173,4 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     initialize();
-
-
 })
