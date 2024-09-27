@@ -83,9 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const getBotGuilds = async () => {
     try {
         const response = await fetch('https://home-vert-tau.vercel.app/api/bot-guilds'); // Adjust URL if necessary
-        if (!response.ok) {
-            throw new Error('Network response was not ok: ' + response.statusText);
-        }
+if (!response.ok) {
+    const errorData = await response.text(); // Get the error message
+    console.error('Error fetching bot guilds:', errorData); // Log the error response
+    return res.status(response.status).json({ error: response.statusText, details: errorData });
+}
         return await response.json();
     } catch (error) {
         console.error('Error fetching bot guilds:', error);
