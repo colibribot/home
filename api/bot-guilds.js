@@ -1,20 +1,21 @@
 const fetch = require('node-fetch');
-require('dotenv').config(); // Make sure you have this line if you are using environment variables
+require('dotenv').config(); // Use dotenv to load environment variables
 
 export default async function handler(req, res) {
-    // Allow requests from your front-end origin
-    res.setHeader('Access-Control-Allow-Origin', 'https://home-git-main-colibribots-projects.vercel.app'); // Replace with your front-end URL
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS'); // Allow these methods
+    // Allow CORS (Cross-Origin Resource Sharing)
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Replace with your actual front-end URL
+    res.setHeader('Access-Control-Allow-Methods', '*'); // Allowed methods
 
     if (req.method === 'OPTIONS') {
-        // Preflight request
-        return res.status(200).end();
+        return res.status(200).end(); // Handle preflight requests
     }
 
-    const botToken = process.env.TOKEN;
+    const botToken = process.env.TOKEN; // Get your bot token from environment variables
 
+    // Check if the bot token is available
     if (!botToken) {
-        return res.status(500).json({ error: 'Bot token not found. Make sure to set DISCORD_BOT_TOKEN in your .env file.' });
+        console.error('Bot token is not defined'); // Log an error
+        return res.status(500).json({ error: 'Bot token not found. Make sure to set DISCORD_BOT_TOKEN in your environment variables.' });
     }
 
     try {
@@ -25,11 +26,11 @@ export default async function handler(req, res) {
         });
 
         if (response.ok) {
-            const botGuilds = await response.json();
-            res.status(200).json(botGuilds);
+            const guilds = await response.json();
+            res.status(200).json(guilds); // Return the guilds in the response
         } else {
             console.error('Error fetching bot guilds:', response.statusText);
-            res.status(500).json({ error: 'Failed to fetch bot guilds' });
+            res.status(response.status).json({ error: response.statusText });
         }
     } catch (error) {
         console.error('Error:', error);
