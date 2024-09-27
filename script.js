@@ -53,6 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+        const displayProfile = (user) => {
+        loginBtn.style.display = 'none';
+        profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+        profileName.textContent = user.username;
+        profileNameSpan.textContent = user.username; // Display username in welcome span
+        profilePic.style.display = 'block';
+    };
+
     const getUserGuilds = async (token) => {
         try {
             const response = await fetch('https://discord.com/api/users/@me/guilds', {
