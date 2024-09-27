@@ -9,3 +9,13 @@
     "discord.js": "^14.3.0"
   }
 }
+
+{
+  "name": "discord-bot-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.6.1",  // if using node-fetch for API requests
+    "discord.js": "^14.6.0"   // Add if you're using discord.js
+  }
+}
