@@ -34,36 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
         location.reload();
     };
 
-const blockedUsers = ['1107732982581690428']; // Blocked user IDs (Optional, for quick frontend check)
-
-const getUserInfo = async (token) => {
-    try {
-        const response = await fetch('https://discord.com/api/users/@me', {
-            headers: {
-                Authorization: `Bearer ${token}`
+    const getUserInfo = async (token) => {
+        try {
+            const response = await fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Invalid token');
             }
-        });
-
-        if (response.ok) {
-            const user = await response.json();
-
-            // Frontend blocking check (Optional)
-            if (blockedUsers.includes(user.id)) {
-                alert('Access denied: You are blocked from this service.');
-                return null; // Prevent further actions
-            }
-
-            return user;
-        } else {
-            console.error('Failed to fetch user info:', response.status);
-            throw new Error('Invalid token');
+        } catch (error) {
+            return null;
         }
-    } catch (error) {
-        console.error('Error fetching user info:', error);
-        return null;
-    }
-};
-
+    };
 
         const displayProfile = (user) => {
         loginBtn.style.display = 'none';
