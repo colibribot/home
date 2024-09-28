@@ -1,10 +1,13 @@
 const fetch = require('node-fetch');
+const fs = require('fs'); // Import the file system module to read files
+const path = require('path');
 require('dotenv').config();
 
-const blockedUsers = ['1107732982581690428']; // Example list of blocked user IDs
+// Define the path to the blocked users file
+const blockedUsersFilePath = path.join(__dirname, '..', 'blocked-users.json');
 
 export default async function handler(req, res) {
-    // Allow CORS (Cross-Origin Resource Sharing)
+    // Set CORS headers (update for your domain)
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
 
@@ -12,7 +15,11 @@ export default async function handler(req, res) {
         return res.status(200).end();
     }
 
-    const accessToken = req.headers.authorization?.split(' ')[1]; // Assuming you use a Bearer token for authentication
+    // Read the blocked users file
+    const blockedUsersData = fs.readFileSync(blockedUsersFilePath, 'utf8');
+    const blockedUsers = JSON.parse(blockedUsersData).blocked; // Parse the JSON file to get the blocked list
+
+    const accessToken = req.headers.authorization?.split(' ')[1];
 
     try {
         // Fetch user info from Discord
@@ -33,7 +40,7 @@ export default async function handler(req, res) {
             return res.status(403).json({ error: 'Access denied: You are blocked from this service' });
         }
 
-        // Fetch guilds (if the user is not blocked)
+        // Fetch user's guilds if they are not blocked
         const response = await fetch('https://discord.com/api/v9/users/@me/guilds', {
             headers: {
                 Authorization: `Bearer ${process.env.TOKEN}`
