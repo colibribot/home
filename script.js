@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
     const guildsContainer = document.getElementById('guilds');
+    const commonGuildsContainer = document.getElementById('common-guilds'); // New section for common guilds
 
     const CLIENT_ID = '1156663455399563289';
     const REDIRECT_URI = 'https://colibribot.github.io/home/';
