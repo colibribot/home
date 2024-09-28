@@ -188,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const userGuilds = await getUserGuilds(storedToken);
                 const botGuilds = await getBotGuilds();
                 const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
-                displayAllGuilds(userGuilds);       // Display all user guilds
                 displayGuilds(commonGuilds);
             } else {
                 console.error('User info fetch failed');
