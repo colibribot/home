@@ -110,15 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
         profilePic.style.display = 'block';
     };
 
-    const displayGuilds = (guilds) => {
+    const displayAllGuilds = (userGuilds) => {
         guildsContainer.innerHTML = ''; // Clear any existing guilds
-        console.log('Guilds:', guilds); // Debugging information
 
-        if (guilds.length === 0) {
-            guildsContainer.innerHTML = '<p>No common guilds found.</p>';
+        if (userGuilds.length === 0) {
+            guildsContainer.innerHTML = '<p>No guilds found.</p>';
+            return;
         }
 
-        guilds.forEach(guild => {
+        userGuilds.forEach(guild => {
             const guildElement = document.createElement('div');
             guildElement.classList.add('guild');
 
@@ -131,6 +131,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>${guild.name}</p>
             `;
             guildsContainer.appendChild(guildElement);
+        });
+    };
+
+    const displayCommonGuilds = (commonGuilds) => {
+        commonGuildsContainer.innerHTML = ''; // Clear any existing common guilds
+
+        if (commonGuilds.length === 0) {
+            commonGuildsContainer.innerHTML = '<p>No common guilds with the bot found.</p>';
+            return;
+        }
+
+        commonGuilds.forEach(guild => {
+            const guildElement = document.createElement('div');
+            guildElement.classList.add('guild common-guild'); // Add class to differentiate
+
+            const guildIcon = guild.icon ? 
+                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 
+                'default-icon.png'; // Use a default icon if the guild doesn't have one
+
+            guildElement.innerHTML = `
+                <img src="${guildIcon}" alt="${guild.name}">
+                <p>${guild.name}</p>
+            `;
+            commonGuildsContainer.appendChild(guildElement);
         });
     };
 
