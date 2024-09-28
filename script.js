@@ -188,8 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const userGuilds = await getUserGuilds(storedToken);
                 const botGuilds = await getBotGuilds();
                 const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
-                displayGuilds(commonGuilds);
-            } else {
+                displayAllGuilds(userGuilds);       // Display all user guilds
+                displayCommonGuilds(commonGuilds);  // Display common guilds separately            } else {
                 console.error('User info fetch failed');
                 localStorage.removeItem('discord_access_token');
                 loginBtn.style.display = 'block';
