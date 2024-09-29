@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set the initial theme based on stored preference or system preference
     if (storedTheme === 'dark' || (!storedTheme && systemDarkMode)) {
         document.body.classList.add('dark-mode');
+        document.querySelector('.navbar').classList.toggle('dark-mode');
         document.querySelector('.hero-section').classList.add('dark-mode');
         document.querySelector('.about').classList.add('dark-mode');
         document.querySelector('.features-section').classList.add('dark-mode');
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle dark mode on button click
     themeToggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
+        document.querySelector('.navbar').classList.toggle('dark-mode');
         document.querySelector('.hero-section').classList.toggle('dark-mode');
         document.querySelector('.about').classList.toggle('dark-mode');
         document.querySelector('.features-section').classList.toggle('dark-mode');
