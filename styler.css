@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Base styles */
+:root {
+    --primary-color: #2d87f5;
+    --accent-color: #ff8b42;
+    --light-bg: #ffffff;
+    --light-text: #333333;
+    --dark-bg: #121212;
+    --dark-text: #f0f0f0;
+    --transition-speed: 0.3s;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand h1 {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    color: #fff;
+}
+
+main {
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+}
+
+.cta-btn {
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color var(--transition-speed);
+}
+
+.cta-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.hero-image {
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Features Section */
+.features-section {
+    padding: 4rem 2rem;
+}
+
+.features-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.features-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+/* Commands Section */
+.commands-section {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.commands-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.commands-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.commands-table th, .commands-table td {
+    padding: 1rem;
+    border: 1px solid #ccc;
+}
+
+.commands-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.commands-table td {
+    background-color: #f9f9f9;
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 4rem 2rem;
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.reviews-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.review {
+    width: 300px;
+    padding: 1.5rem;
+    background-color: white;
+    color: var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed);
+}
+
+.review:hover {
+    transform: translateY(-5px);
+}
+
+.review span {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 4rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.contact-form {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color var(--transition-speed);
+}
+
+.submit-btn:hover {
+    background-color: #1f5cb5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode .hero {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .cta-btn {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode footer {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .commands-section {
+    background-color: var(--dark-bg);
+}
+
+body.dark-mode .commands-table td {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .reviews-section {
+    background-color: #333;
+}
+
+body.dark-mode .review {
+    background-color: #1f1f1f;
+    color: white;
+}
