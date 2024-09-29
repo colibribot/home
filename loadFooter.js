@@ -5,16 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('footer.html');
             if (response.ok) {
                 const footerHTML = await response.text();
-                document.body.insertAdjacentHTML('beforeend', footerHTML);
-                        const darkModeToggle = document.getElementById('dark-mode-toggle');
-
-    function myFunction() {
-        var element = document.body;
-        element.classList.toggle("dark-mode");
-    }
-
-    // Add event listener to the button
-        darkModeToggle.addEventListener('click', myFunction);
             } else {
                 console.error('Failed to load footer:', response.status);
             }
