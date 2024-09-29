@@ -991,11 +991,11 @@ body.dark-mode {
 }
 
 .features-section.dark-mode .feature-title {
-    color: #e0e0e0;
+    color: #e91e63;
 }
 
 .features-section.dark-mode .feature-link {
-    color: #007bff; /* Button link color */
+    color: #ffffff; /* Button link color */
 }
 
 
