@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const guildsContainer = document.getElementById('guilds');
     const commonGuildsContainer = document.getElementById('common-guilds');
 
-    const CLIENT_ID = 'YOUR_CLIENT_ID';
-    const REDIRECT_URI = 'YOUR_REDIRECT_URI';
+    const CLIENT_ID = '1156663455399563289';
+    const REDIRECT_URI = 'https://colibribot.github.io/home/';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
     const RESPONSE_TYPE = 'token';
-    const SCOPE = 'identify guilds email';
+    const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
     // Get login URL
     const getLoginURL = () => {
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('https://your-domain.com/api/bot-guilds', {
+            const response = await fetch('https://home-vert-tau.vercel.app/api/bot-guilds.js', {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }
