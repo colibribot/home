@@ -1,72 +1,52 @@
-const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
-// Define the path to the blocked users file
-const blockedUsersFilePath = path.join(__dirname, '..', 'api', 'blocked-users.json');
-
-export default async function handler(req, res) {
-    // Set CORS headers (update for your domain)
-    res.setHeader('Access-Control-Allow-Origin', 'https://home-vert-tau.vercel.app/');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+module.exports = async function handler(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');
 
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
 
     const accessToken = req.headers.authorization?.split(' ')[1];
-    
-    // If the token is missing
     if (!accessToken) {
         return res.status(401).json({ error: 'Missing Authorization token' });
     }
 
     try {
-        // Read the blocked users file safely
-        let blockedUsers = [];
-        try {
-            const blockedUsersData = fs.readFileSync(blockedUsersFilePath, 'utf8');
-            blockedUsers = JSON.parse(blockedUsersData).blocked || [];
-        } catch (err) {
-            console.error('Failed to read blocked users file:', err);
-            return res.status(500).json({ error: 'Failed to read blocked users file' });
-        }
+        const blockedUsersData = fs.readFileSync(path.join(__dirname, 'blocked-users.json'), 'utf8');
+        const blockedUsers = JSON.parse(blockedUsersData).blocked;
 
-        // Fetch user info from Discord
+        // Fetch user info
         const userResponse = await fetch('https://discord.com/api/v9/users/@me', {
-            headers: {
-                Authorization: `Bearer ${accessToken}`
-            }
+            headers: { Authorization: `Bearer ${accessToken}` }
         });
 
         if (!userResponse.ok) {
-            return res.status(401).json({ error: 'Invalid token or failed to fetch user info' });
+            return res.status(401).json({ error: 'Invalid token' });
         }
 
         const user = await userResponse.json();
-
-        // Check if the user is in the blocked list
         if (blockedUsers.includes(user.id)) {
             return res.status(403).json({ error: 'Access denied: You are blocked from this service' });
         }
 
-        // Fetch bot's guilds (using bot token from environment variable)
-        const response = await fetch('https://discord.com/api/v9/users/@me/guilds', {
-            headers: {
-                Authorization: `Bearer ${process.env.TOKEN}` // Bot token
-            }
+        // Fetch bot guilds
+        const botGuildsResponse = await fetch('https://discord.com/api/v9/users/@me/guilds', {
+            headers: { Authorization: `Bearer ${process.env.BOT_TOKEN}` }
         });
 
-        if (response.ok) {
-            const guilds = await response.json();
-            res.status(200).json(guilds);
+        if (botGuildsResponse.ok) {
+            const guilds = await botGuildsResponse.json();
+            return res.status(200).json(guilds);
         } else {
-            res.status(response.status).json({ error: response.statusText });
+            return res.status(botGuildsResponse.status).json({ error: botGuildsResponse.statusText });
         }
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        return res.status(500).json({ error: 'Internal Server Error' });
     }
-}
+};
