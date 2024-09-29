@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const profilePic = document.getElementById('profile-pic');
     const profileName = document.getElementById('profile-name');
-    const profileNameSpan = document.getElementById('profileName'); // Reference to the welcome span
+    const profileNameSpan = document.getElementById('profileName');
     const dropdownContent = document.getElementById('dropdown-content');
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
     const guildsContainer = document.getElementById('guilds');
-    const commonGuildsContainer = document.getElementById('common-guilds'); // New section for common guilds
+    const commonGuildsContainer = document.getElementById('common-guilds');
 
-    const CLIENT_ID = '1156663455399563289';
-    const REDIRECT_URI = 'https://colibribot.github.io/home/';
+    const CLIENT_ID = 'YOUR_CLIENT_ID';
+    const REDIRECT_URI = 'YOUR_REDIRECT_URI';
     const AUTHORIZATION_ENDPOINT = 'https://discord.com/api/oauth2/authorize';
     const RESPONSE_TYPE = 'token';
-    const SCOPE = 'identify guilds email';
+    const SCOPE = 'identify guilds gdm.join guilds.join email connections';
 
+    // Get login URL
     const getLoginURL = () => {
         const params = new URLSearchParams({
             client_id: CLIENT_ID,
@@ -24,32 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${AUTHORIZATION_ENDPOINT}?${params.toString()}`;
     };
 
+    // Login
     const handleLogin = () => {
         const url = getLoginURL();
         window.location.href = url;
     };
 
+    // Logout
     const handleLogout = () => {
         localStorage.removeItem('discord_access_token');
         location.reload();
     };
 
-    // Fetch blocked users from a JSON file (e.g., hosted on your website)
+    // Fetch blocked users
     const getBlockedUsers = async () => {
         try {
-            const response = await fetch('https://colibribot.github.io/home/api/blocked-users.json'); // Replace with actual URL of the JSON file
+            const response = await fetch('/api/blocked-users.json'); // Adjust with your actual path
             if (response.ok) {
                 return response.json();
             } else {
                 console.error('Failed to fetch blocked users list:', response.status);
-                return { blocked: [] }; // Return an empty list if there is an error
+                return { blocked: [] };
             }
         } catch (error) {
             console.error('Error fetching blocked users:', error);
-            return { blocked: [] }; // Handle fetch errors
+            return { blocked: [] };
         }
     };
 
+    // Fetch user info from Discord
     const getUserInfo = async (token) => {
         try {
             const response = await fetch('https://discord.com/api/users/@me', {
@@ -69,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Fetch user's guilds
     const getUserGuilds = async (token) => {
         try {
             const response = await fetch('https://discord.com/api/users/@me/guilds', {
@@ -88,39 +93,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-const getBotGuilds = async (token) => {
-    try {
-        const response = await fetch('https://home-vert-tau.vercel.app/api/bot-guilds', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`,  // Send the access token
-                'Content-Type': 'application/json',
-            },
-        });
-        if (response.ok) {
-            return response.json();
-        } else {
-            console.error('Failed to fetch bot guilds:', response.status);
-            throw new Error('Failed to fetch bot guilds');
+    // Fetch bot's guilds (Server-side logic embedded)
+    const getBotGuilds = async () => {
+        const accessToken = localStorage.getItem('discord_access_token');
+        if (!accessToken) {
+            console.error('No access token found');
+            return [];
         }
-    } catch (error) {
-        console.error('Error fetching bot guilds:', error);
-        return [];
-    }
-};
 
+        try {
+            const response = await fetch('/api/bot-guilds', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            });
 
+            if (response.ok) {
+                return response.json();
+            } else {
+                console.error('Failed to fetch bot guilds:', response.status);
+                throw new Error('Failed to fetch bot guilds');
+            }
+        } catch (error) {
+            console.error('Error fetching bot guilds:', error);
+            return [];
+        }
+    };
+
+    // Display profile info
     const displayProfile = (user) => {
         loginBtn.style.display = 'none';
         profilePic.src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
         profileName.textContent = user.username;
-        profileNameSpan.textContent = user.username; // Display username in welcome span
+        profileNameSpan.textContent = user.username;
         profilePic.style.display = 'block';
     };
 
+    // Display all user's guilds
     const displayAllGuilds = (userGuilds) => {
-        guildsContainer.innerHTML = ''; // Clear any existing guilds
-
+        guildsContainer.innerHTML = '';
         if (userGuilds.length === 0) {
             guildsContainer.innerHTML = '<p>No guilds found.</p>';
             return;
@@ -129,22 +140,17 @@ const getBotGuilds = async (token) => {
         userGuilds.forEach(guild => {
             const guildElement = document.createElement('div');
             guildElement.classList.add('guild');
-
-            const guildIcon = guild.icon ? 
-                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 
-                'default-icon.png'; // Use a default icon if the guild doesn't have one
-
-            guildElement.innerHTML = `
-                <img src="${guildIcon}" alt="${guild.name}">
-                <p>${guild.name}</p>
-            `;
+            const guildIcon = guild.icon ?
+                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` :
+                'default-icon.png';
+            guildElement.innerHTML = `<img src="${guildIcon}" alt="${guild.name}"><p>${guild.name}</p>`;
             guildsContainer.appendChild(guildElement);
         });
     };
 
+    // Display common guilds
     const displayCommonGuilds = (commonGuilds) => {
-        commonGuildsContainer.innerHTML = ''; // Clear any existing common guilds
-
+        commonGuildsContainer.innerHTML = '';
         if (commonGuilds.length === 0) {
             commonGuildsContainer.innerHTML = '<p>No common guilds with the bot found.</p>';
             return;
@@ -152,16 +158,11 @@ const getBotGuilds = async (token) => {
 
         commonGuilds.forEach(guild => {
             const guildElement = document.createElement('div');
-            guildElement.classList.add('guild common-guild'); // Add class to differentiate
-
-            const guildIcon = guild.icon ? 
-                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` : 
-                'default-icon.png'; // Use a default icon if the guild doesn't have one
-
-            guildElement.innerHTML = `
-                <img src="${guildIcon}" alt="${guild.name}">
-                <p>${guild.name}</p>
-            `;
+            guildElement.classList.add('guild', 'common-guild');
+            const guildIcon = guild.icon ?
+                `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png` :
+                'default-icon.png';
+            guildElement.innerHTML = `<img src="${guildIcon}" alt="${guild.name}"><p>${guild.name}</p>`;
             commonGuildsContainer.appendChild(guildElement);
         });
     };
@@ -169,47 +170,100 @@ const getBotGuilds = async (token) => {
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
 
-const initialize = async () => {
-    const params = new URLSearchParams(window.location.hash.substring(1));
-    const accessToken = params.get('access_token');
+    // Initialization
+    const initialize = async () => {
+        const params = new URLSearchParams(window.location.hash.substring(1));
+        const accessToken = params.get('access_token');
 
-    if (accessToken) {
-        localStorage.setItem('discord_access_token', accessToken);
-        window.location.hash = '';
-    }
+        if (accessToken) {
+            localStorage.setItem('discord_access_token', accessToken);
+            window.location.hash = '';
+        }
 
-    const storedToken = localStorage.getItem('discord_access_token');
-    console.log('Stored Token:', storedToken); // Debugging information
+        const storedToken = localStorage.getItem('discord_access_token');
 
-    if (storedToken) {
-        const user = await getUserInfo(storedToken);
-        const blockedUsers = await getBlockedUsers(); // Fetch blocked users from the external JSON file
+        if (storedToken) {
+            const user = await getUserInfo(storedToken);
+            const blockedUsers = await getBlockedUsers();
 
-        if (user) {
-            // Check if the user is blocked
-            if (blockedUsers.blocked.includes(user.id)) {
-                alert('You are blocked from using this service.');
-                return;
+            if (user) {
+                // Blocked user check
+                if (blockedUsers.blocked.includes(user.id)) {
+                    alert('You are blocked from using this service.');
+                    return;
+                }
+
+                displayProfile(user);
+                const userGuilds = await getUserGuilds(storedToken);
+                const botGuilds = await getBotGuilds();
+                const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
+                displayAllGuilds(userGuilds);
+                displayCommonGuilds(commonGuilds);
+            } else {
+                console.error('User info fetch failed');
+                localStorage.removeItem('discord_access_token');
+                loginBtn.style.display = 'block';
+                profilePic.style.display = 'none';
             }
-
-            displayProfile(user);
-            const userGuilds = await getUserGuilds(storedToken);
-            const botGuilds = await getBotGuilds(storedToken); // Pass the token to getBotGuilds
-            const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
-            displayAllGuilds(userGuilds);       // Display all user guilds
-            displayCommonGuilds(commonGuilds);  // Display common guilds separately            
         } else {
-            console.error('User info fetch failed');
-            localStorage.removeItem('discord_access_token');
             loginBtn.style.display = 'block';
             profilePic.style.display = 'none';
         }
-    } else {
-        loginBtn.style.display = 'block';
-        profilePic.style.display = 'none';
-    }
-};
-
+    };
 
     initialize();
 });
+
+// Server-side API (Node.js)
+const fs = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
+require('dotenv').config();
+
+export default async function handler(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
+    const accessToken = req.headers.authorization?.split(' ')[1];
+    if (!accessToken) {
+        return res.status(401).json({ error: 'Missing Authorization token' });
+    }
+
+    try {
+        const blockedUsersData = fs.readFileSync(path.join(__dirname, 'blocked-users.json'), 'utf8');
+        const blockedUsers = JSON.parse(blockedUsersData).blocked;
+
+        // Fetch user info
+        const userResponse = await fetch('https://discord.com/api/v9/users/@me', {
+            headers: { Authorization: `Bearer ${accessToken}` }
+        });
+
+        if (!userResponse.ok) {
+            return res.status(401).json({ error: 'Invalid token' });
+        }
+
+        const user = await userResponse.json();
+        if (blockedUsers.includes(user.id)) {
+            return res.status(403).json({ error: 'Access denied: You are blocked from this service' });
+        }
+
+        // Fetch bot guilds
+        const botGuildsResponse = await fetch('https://discord.com/api/v9/users/@me/guilds', {
+            headers: { Authorization: `Bearer ${process.env.TOKEN}` }
+        });
+
+        if (botGuildsResponse.ok) {
+            const guilds = await botGuildsResponse.json();
+            return res.status(200).json(guilds);
+        } else {
+            return res.status(botGuildsResponse.status).json({ error: botGuildsResponse.statusText });
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
