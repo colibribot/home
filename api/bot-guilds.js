@@ -4,7 +4,7 @@ const path = require('path');
 require('dotenv').config();
 
 // Define the path to the blocked users file
-const blockedUsersFilePath = path.join(__dirname, '..', 'blocked-users.json');
+const blockedUsersFilePath = path.join(__dirname, '..', '/api/blocked-users.json');
 
 export default async function handler(req, res) {
     // Set CORS headers (update for your domain)
