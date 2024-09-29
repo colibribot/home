@@ -47,10 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const response = await fetch('https://home-vert-tau.vercel.app/api/bot-guilds.js', {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`
-                }
-            });
+    method: 'GET',
+    headers: {
+        'Authorization': 'Bearer team_kq9Q9HsYSFdadZI38n1VIlCd'
+    }
+});
 
             if (response.ok) {
                 return response.json();
