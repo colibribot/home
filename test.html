@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern, responsive homepage for a Discord bot with dark mode support">
+    <title>My Discord Bot</title>
+    <link rel="stylesheet" href="styler.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="brand">
+                <h1>BotName</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#commands">Commands</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="theme-toggle">
+                <span id="theme-icon" class="material-icons">brightness_4</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Enhance Your Discord Server with BotName</h2>
+                <p>The all-in-one bot for moderation, fun, music, and more. Elevate your server experience with customizable commands and automation.</p>
+                <a href="#features" class="cta-btn">Discover Features</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot" class="cta-btn">Invite Bot</a>
+            </div>
+            <img src="bot-hero-image.svg" alt="Hero image of bot" class="hero-image">
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <h2>Bot Features</h2>
+            <div class="features-container">
+                <div class="feature">
+                    <h3>Moderation Tools</h3>
+                    <p>Keep your server safe with powerful moderation commands: ban, kick, mute, and more.</p>
+                </div>
+                <div class="feature">
+                    <h3>Music Player</h3>
+                    <p>Stream high-quality music directly in your voice channels with easy-to-use commands.</p>
+                </div>
+                <div class="feature">
+                    <h3>Fun and Games</h3>
+                    <p>Engage your community with games, trivia, and meme commands.</p>
+                </div>
+                <div class="feature">
+                    <h3>Custom Commands</h3>
+                    <p>Personalize the bot with custom commands and responses to match your server’s needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Commands Section -->
+        <section id="commands" class="commands-section">
+            <h2>Bot Commands</h2>
+            <table class="commands-table">
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>/ban [user]</td>
+                        <td>Bans a user from the server.</td>
+                    </tr>
+                    <tr>
+                        <td>/kick [user]</td>
+                        <td>Kicks a user from the server.</td>
+                    </tr>
+                    <tr>
+                        <td>/play [song]</td>
+                        <td>Plays a song from YouTube in your voice channel.</td>
+                    </tr>
+                    <tr>
+                        <td>/meme</td>
+                        <td>Sends a random meme from the internet.</td>
+                    </tr>
+                    <tr>
+                        <td>/trivia</td>
+                        <td>Starts a trivia game in the chat.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="reviews-section">
+            <h2>What Users Say</h2>
+            <div class="reviews-container">
+                <div class="review">
+                    <p>"BotName is an amazing bot! It makes managing my server so much easier."</p>
+                    <span>- User1</span>
+                </div>
+                <div class="review">
+                    <p>"I love the music features and the games. My community is more active now!"</p>
+                    <span>- User2</span>
+                </div>
+                <div class="review">
+                    <p>"The moderation commands are a lifesaver. Highly recommend!"</p>
+                    <span>- User3</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Contact Us</h2>
+            <form action="#" method="POST" class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 BotName | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script src="darkmode.js"></script>
+</body>
+</html>
