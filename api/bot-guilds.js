@@ -8,8 +8,8 @@ const blockedUsersFilePath = path.join(__dirname, '..', '/api/blocked-users.json
 
 export default async function handler(req, res) {
     // Set CORS headers (update for your domain)
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Origin', 'https://home-vert-tau.vercel.app/');
+    res.setHeader('Access-Control-Allow-Methods', '*');
 
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
