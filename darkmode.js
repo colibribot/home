@@ -1,25 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggleBtn = document.getElementById('theme-icon');
-    const userThemePreference = localStorage.getItem('theme');
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
     const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    // Set initial theme based on user or system preference
-    if (userThemePreference === 'dark' || (!userThemePreference && systemDarkMode)) {
+    // Set the initial theme based on stored preference or system preference
+    if (storedTheme === 'dark' || (!storedTheme && systemDarkMode)) {
         document.body.classList.add('dark-mode');
-        themeToggleBtn.textContent = 'brightness_7'; // Sun icon
-    } else {
-        document.body.classList.remove('dark-mode');
-        themeToggleBtn.textContent = 'brightness_4'; // Moon icon
+        document.querySelector('.hero-section').classList.add('dark-mode');
+        document.querySelectorAll('.navbar-links a').forEach(link => {
+            link.classList.add('dark-mode');
+        });
     }
 
     // Toggle dark mode on button click
     themeToggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
+        document.querySelector('.hero-section').classList.toggle('dark-mode');
+        document.querySelectorAll('.navbar-links a').forEach(link => {
+            link.classList.toggle('dark-mode');
+        });
+
+        // Save user preference in localStorage
         if (document.body.classList.contains('dark-mode')) {
-            themeToggleBtn.textContent = 'brightness_7'; // Sun icon
             localStorage.setItem('theme', 'dark');
         } else {
-            themeToggleBtn.textContent = 'brightness_4'; // Moon icon
             localStorage.setItem('theme', 'light');
         }
     });
