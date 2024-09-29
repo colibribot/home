@@ -169,46 +169,47 @@ const getBotGuilds = async (token) => {
     loginBtn.addEventListener('click', handleLogin);
     logoutBtn.addEventListener('click', handleLogout);
 
-    const initialize = async () => {
-        const params = new URLSearchParams(window.location.hash.substring(1));
-        const accessToken = params.get('access_token');
+const initialize = async () => {
+    const params = new URLSearchParams(window.location.hash.substring(1));
+    const accessToken = params.get('access_token');
 
-        if (accessToken) {
-            localStorage.setItem('discord_access_token', accessToken);
-            window.location.hash = '';
-        }
+    if (accessToken) {
+        localStorage.setItem('discord_access_token', accessToken);
+        window.location.hash = '';
+    }
 
-        const storedToken = localStorage.getItem('discord_access_token');
-        console.log('Stored Token:', storedToken); // Debugging information
+    const storedToken = localStorage.getItem('discord_access_token');
+    console.log('Stored Token:', storedToken); // Debugging information
 
-        if (storedToken) {
-            const user = await getUserInfo(storedToken);
-            const blockedUsers = await getBlockedUsers(); // Fetch blocked users from the external JSON file
+    if (storedToken) {
+        const user = await getUserInfo(storedToken);
+        const blockedUsers = await getBlockedUsers(); // Fetch blocked users from the external JSON file
 
-            if (user) {
-                // Check if the user is blocked
-                if (blockedUsers.blocked.includes(user.id)) {
-                    alert('You are blocked from using this service.');
-                    return;
-                }
-
-                displayProfile(user);
-                const userGuilds = await getUserGuilds(storedToken);
-                const botGuilds = await getBotGuilds();
-                const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
-                displayAllGuilds(userGuilds);       // Display all user guilds
-                displayCommonGuilds(commonGuilds);  // Display common guilds separately            
-            } else {
-                console.error('User info fetch failed');
-                localStorage.removeItem('discord_access_token');
-                loginBtn.style.display = 'block';
-                profilePic.style.display = 'none';
+        if (user) {
+            // Check if the user is blocked
+            if (blockedUsers.blocked.includes(user.id)) {
+                alert('You are blocked from using this service.');
+                return;
             }
+
+            displayProfile(user);
+            const userGuilds = await getUserGuilds(storedToken);
+            const botGuilds = await getBotGuilds(storedToken); // Pass the token to getBotGuilds
+            const commonGuilds = userGuilds.filter(userGuild => botGuilds.some(botGuild => botGuild.id === userGuild.id));
+            displayAllGuilds(userGuilds);       // Display all user guilds
+            displayCommonGuilds(commonGuilds);  // Display common guilds separately            
         } else {
+            console.error('User info fetch failed');
+            localStorage.removeItem('discord_access_token');
             loginBtn.style.display = 'block';
             profilePic.style.display = 'none';
         }
-    };
+    } else {
+        loginBtn.style.display = 'block';
+        profilePic.style.display = 'none';
+    }
+};
+
 
     initialize();
 });
