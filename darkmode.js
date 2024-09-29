@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (storedTheme === 'dark' || (!storedTheme && systemDarkMode)) {
         document.body.classList.add('dark-mode');
         document.querySelector('.hero-section').classList.add('dark-mode');
+        document.querySelector('.about').classList.add('dark-mode');
+        document.querySelector('.features-section').classList.add('dark-mode');
+        document.querySelector('.cta').classList.add('dark-mode');
         document.querySelectorAll('.navbar-links a').forEach(link => {
             link.classList.add('dark-mode');
         });
@@ -16,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         document.querySelector('.hero-section').classList.toggle('dark-mode');
+        document.querySelector('.about').classList.toggle('dark-mode');
+        document.querySelector('.features-section').classList.toggle('dark-mode');
+        document.querySelector('.cta').classList.toggle('dark-mode');
         document.querySelectorAll('.navbar-links a').forEach(link => {
             link.classList.toggle('dark-mode');
         });
