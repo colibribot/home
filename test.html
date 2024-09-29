@@ -1,143 +1,183 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A modern, responsive homepage for a Discord bot with dark mode support">
-    <title>My Discord Bot</title>
-    <link rel="stylesheet" href="styler.css">
+    <title>Colibri Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="bot.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="brand">
-                <h1>BotName</h1>
+<body class="">
+    
+    <header class="hero-section">
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <a href="#">
+                    <img src="bot.jpg" alt="Bot Logo" class="logo">
+                </a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#commands">Commands</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="navbar-links">
+                <li class="navbar-item"><a href="#">Home</a></li>
+                <li class="navbar-item"><a href="#">Features</a></li>
+                <li class="navbar-item"><a href="#">Documentation</a></li>
+                <li class="navbar-item"><a href="#">Commands</a></li>
+                <li class="navbar-item"><a href="#">Support</a></li>
             </ul>
-            <div class="theme-toggle">
-                <span id="theme-icon" class="material-icons">brightness_4</span>
+
+            <div class="profile">
+                <div class="profile-trigger">
+                    <img id="profile-pic" src="https://cdn.discordapp.com/avatars/697051690800644136/d9c0c5f0713ed5419a8e276cad3abe46.png" alt="Profile Picture" class="profile-pic" style="display: block;">
+                </div>
+                <div id="dropdown-content" class="dropdown-content" style="display: none;">
+                    <p id="profile-name">alex1061</p>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="premium.html">Premium</a>
+                    <a href="#" id="logout-btn">Log Out</a>
+                </div>
             </div>
-        </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+                                <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
+
+                            
+        </div>
+    </nav>
+        
+        <div class="hero-content">
+            <h1>Welcome to Colibri Dashboard</h1>
+            <h3>Effortlessly manage your Discord server with powerful and intuitive tools.</h3>
+            <a href="dashboard.html" class="btn btn-primary">Get Started</a>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h2>Enhance Your Discord Server with BotName</h2>
-                <p>The all-in-one bot for moderation, fun, music, and more. Elevate your server experience with customizable commands and automation.</p>
-                <a href="#features" class="cta-btn">Discover Features</a>
-                <a href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&scope=bot" class="cta-btn">Invite Bot</a>
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Colibri</h2>
+            <p>Colibri is designed to help you manage your Discord server with ease. With powerful tools and a user-friendly interface, Colibri simplifies server management, allowing you to focus on building a great community.</p>
+        </div>
+    </section>
+
+<section class="features-section">
+  <!-- First Feature (Image on the right, text on the left) -->
+  <div class="feature-item">
+    <div class="feature-content">
+      <h2 class="feature-title">Advanced Moderation</h2>
+      <p class="feature-description">Keep your Discord server safe and sound with cutting-edge moderation tools designed to identify, log, and prevent toxic behavior in real-time.</p>
+      <a href="#" class="feature-link">Learn more</a>
+    </div>
+    <div class="feature-image">
+      <img src="bot.jpg" alt="Moderation">
+    </div>
+  </div>
+
+  <!-- Second Feature (Image on the left, text on the right) -->
+  <div class="feature-item reverse">
+          <div class="feature-content">
+      <h2 class="feature-title">Seamless Music Integration</h2>
+      <p class="feature-description">Enjoy high-quality music streaming directly within your server. With seamless integration, users can queue up tracks from Spotify, YouTube, and more!</p>
+      <a href="#" class="feature-link">Start listening</a>
+    </div>
+    <div class="feature-image">
+          <img src="bot.jpg" alt="Music Integration">
+    </div>
+  </div>
+
+  <!-- Third Feature (Image on the right, text on the left) -->
+  <div class="feature-item">
+    <div class="feature-content">
+      <h2 class="feature-title">Custom Commands</h2>
+      <p class="feature-description">Empower your community by creating custom commands that cater to your server's unique needs. No coding required!</p>
+      <a href="#" class="feature-link">Customize now</a>
+    </div>
+    <div class="feature-image">
+      <img src="bot.jpg" alt="Custom Commands">
+    </div>
+  </div>
+</section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to enhance your Discord server?</h2>
+            <p>Join thousands of satisfied users and improve your server management with Colibri.</p>
+            <a href="invite.html" class="btn btn-primary">Get Started</a>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+     <!-- Link to the new dark mode script -->
+
+
+
+    
+
+
+<!-- footer.html -->
+
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>Community</h3>
+            <ul>
+                <li><a href="#">Reward Program</a></li>
+                <li><a href="/account/account.html">Account Center</a></li>
+                <li><a href="#">Social Media</a></li>
+                <li><a href="#">Forums</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+                <li><a href="#">Product Registration</a></li>
+                <li><a href="#">Warranty Information</a></li>
+                <li><a href="#">Online Customer Service</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Resource</h3>
+                    <ul>
+                        <li><a href="/help/docs.html">Documentation</a></li>
+                        <li><a href="/home/premium.html">Premium</a></li>
+                        <li><a href="/home/discord.html">Community</a></li>
+                    </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Company Information</h3>
+                    <ul>
+                        <li><a href="/home/index.html">About Us</a></li>
+                        <li><a href="/company/careers.html">Careers</a></li>
+                        <li><a href="/help/contact.html">Contact</a></li>
+                    </ul>
+        </div>
+        <div class="footer-column">
+            <h3>More</h3>
+            <ul>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <nav class="info">
+            <div class="copyright">
+                <img class="copyright__logo" width="50" height="15" src="bot.jpg" alt="Colibri">
+                <p class="copyright__legal">Copyright © 2024 alex1061. All rights reserved.</p>
             </div>
-            <img src="bot-hero-image.svg" alt="Hero image of bot" class="hero-image">
-        </section>
+            <ul class="service">
+                <li class="service__item"><a class="service__link" href="/legal/cookies.html">Cookie Policy</a></li>
+                <li class="service__item"><a class="service__link" href="/legal/privacy.html">Privacy Policy</a></li>
+                <li class="service__item"><a class="service__link" href="/legal/terms.html">Terms of Use</a></li>
+                <li class="service__item"><a class="service__link" href="/help/contact.html">Contact Us</a></li>
+    
 
-        <!-- Features Section -->
-        <section id="features" class="features-section">
-            <h2>Bot Features</h2>
-            <div class="features-container">
-                <div class="feature">
-                    <h3>Moderation Tools</h3>
-                    <p>Keep your server safe with powerful moderation commands: ban, kick, mute, and more.</p>
-                </div>
-                <div class="feature">
-                    <h3>Music Player</h3>
-                    <p>Stream high-quality music directly in your voice channels with easy-to-use commands.</p>
-                </div>
-                <div class="feature">
-                    <h3>Fun and Games</h3>
-                    <p>Engage your community with games, trivia, and meme commands.</p>
-                </div>
-                <div class="feature">
-                    <h3>Custom Commands</h3>
-                    <p>Personalize the bot with custom commands and responses to match your server’s needs.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Commands Section -->
-        <section id="commands" class="commands-section">
-            <h2>Bot Commands</h2>
-            <table class="commands-table">
-                <thead>
-                    <tr>
-                        <th>Command</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>/ban [user]</td>
-                        <td>Bans a user from the server.</td>
-                    </tr>
-                    <tr>
-                        <td>/kick [user]</td>
-                        <td>Kicks a user from the server.</td>
-                    </tr>
-                    <tr>
-                        <td>/play [song]</td>
-                        <td>Plays a song from YouTube in your voice channel.</td>
-                    </tr>
-                    <tr>
-                        <td>/meme</td>
-                        <td>Sends a random meme from the internet.</td>
-                    </tr>
-                    <tr>
-                        <td>/trivia</td>
-                        <td>Starts a trivia game in the chat.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Reviews Section -->
-        <section id="reviews" class="reviews-section">
-            <h2>What Users Say</h2>
-            <div class="reviews-container">
-                <div class="review">
-                    <p>"BotName is an amazing bot! It makes managing my server so much easier."</p>
-                    <span>- User1</span>
-                </div>
-                <div class="review">
-                    <p>"I love the music features and the games. My community is more active now!"</p>
-                    <span>- User2</span>
-                </div>
-                <div class="review">
-                    <p>"The moderation commands are a lifesaver. Highly recommend!"</p>
-                    <span>- User3</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <h2>Contact Us</h2>
-            <form action="#" method="POST" class="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 BotName | <a href="#">Privacy Policy</a></p>
-    </footer>
-
-    <script src="darkmode.js"></script>
-</body>
-</html>
+            </ul>
+        </nav>
+    </div>
+</footer>
+</body></html>
