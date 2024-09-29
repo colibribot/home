@@ -273,7 +273,7 @@ footer {
 }
 
 .navbar {
-    background-color: #f8f8f8; /* Discord theme color */
+    background-color: #121212; /* Discord theme color */
     color: #fff;
     position: relative;
     top: 0;
@@ -309,7 +309,7 @@ footer {
 
 .navbar-item a {
     text-decoration: none;
-    color: #333;
+    color: #e0e0e0;
     padding: 10px 15px;
     font-weight: bold;
     transition: color 0.3s;
@@ -381,6 +381,7 @@ footer {
 
     .navbar-links.open {
         display: flex;
+        background-color: #121212;
     }
 
     .navbar-icons, .profile-section {
@@ -963,11 +964,11 @@ body.dark-mode {
 }
 
 .navbar.dark-mode {
-    background-color: #1f1f1f; /* Dark navbar */
+    background-color: white; /* Dark navbar */
 }
 
 .navbar-links a.dark-mode {
-    color: #e0e0e0; /* Light links */
+    color: black; /* Light links */
 }
 
 .btn-secondary {
