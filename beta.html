@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colibri Dashboard</title>
     <link rel="icon" type="image/x-icon" href="bot.jpg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="darkmode.js" defer></script> <!-- Link to the new dark mode script -->
 </head>
 <body>
     
@@ -28,13 +28,14 @@
 
             <div class="profile">
                 <div class="profile-trigger">
-                    <img id="profile-pic" src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+                    <img id="profile-pic" src="" alt="Profile Picture" class="profile-pic" style="display: block;">
                 </div>
-                <div id="dropdown-content" class="dropdown-content">
-                    <p id="profile-name"></p>
+                <div id="dropdown-content" class="dropdown-content" style="display: none;">
+                    <p id="profile-name">alex1061</p>
                     <a href="dashboard.html">Dashboard</a>
                     <a href="premium.html">Premium</a>
                     <a href="#" id="logout-btn">Log Out</a>
+                    <a href="#" id="theme-toggle">Dark/Light mode</a>
                 </div>
             </div>
             <div class="hamburger">
@@ -43,6 +44,7 @@
                 <span></span>
             </div>
                                 <button id="login-btn" class="btn btn-primary" style="display:none;">Login</button>
+                            
         </div>
     </nav>
         
@@ -108,10 +110,15 @@
 
     <script src="scripts.js"></script>
     <script src="loadFooter.js"></script>
-    <script src="darkmode.js"></script> <!-- Link to the new dark mode script -->
+     <!-- Link to the new dark mode script -->
 
 
 
     
-</body>
-</html>
+
+
+<!-- footer.html -->
+
+
+
+</body></html>
