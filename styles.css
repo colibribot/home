@@ -475,8 +475,7 @@ a {
 
 
 .footer p {
-    padding-top: 20px;
-    text-align: center;
+    text-align: start;
 }
 
 .spacer {
