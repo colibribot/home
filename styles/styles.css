@@ -376,11 +376,6 @@ a {
     }
 }
 
-
-.footer p {
-    text-align: start;
-}
-
 .spacer {
     height: 20px; /* Adjust the height as needed */
     border-top: 1px solid #ddd; /* Optional: Add a border for visual separation */
