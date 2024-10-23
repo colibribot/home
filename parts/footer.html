@@ -1,6 +1,6 @@
 <!-- footer.html -->
 <style>
-    .footer {
+.footer {
     background-color: #141414;
     color: #fff;
     padding: 50px 0;
@@ -9,7 +9,7 @@
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Four columns on larger screens */
     gap: 30px;
     margin-bottom: 30px;
 }
@@ -86,12 +86,44 @@
 .footerIcon h4 {
     margin: 0 -3px;
     float: left;
-    place-content: center;
     font-size: 25px;
 }
 
 .footerIcon {
     float: left;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* One column on small screens */
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        margin-bottom: 10px;
+    }
+
+    .footerIcon {
+        display: block;
+        text-align: center;
+    }
+
+    .footerIcon img, .footerIcon h4 {
+        display: block;
+        margin: 0 auto;
+    }
 }
 </style>
 
