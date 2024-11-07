@@ -1,6 +1,6 @@
 <!-- footer.html -->
 <style>
-    .footer {
+.footer {
     background-color: #141414;
     color: #fff;
     padding: 50px 0;
@@ -9,7 +9,7 @@
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Four columns on larger screens */
     gap: 30px;
     margin-bottom: 30px;
 }
@@ -86,12 +86,54 @@
 .footerIcon h4 {
     margin: 0 -3px;
     float: left;
-    place-content: center;
     font-size: 25px;
 }
+    
+.footerIcon p {
+    color: #666;
+    line-height: 1.6;
+}
 
+.footer-bottom p {
+    color: #666;
+    line-height: 1.6;
+}
+    
 .footerIcon {
     float: left;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* One column on small screens */
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-bottom p {
+        margin-bottom: 10px;
+    }
+
+    .footerIcon {
+        display: block;
+        text-align: center;
+    }
+
+    .footerIcon img, .footerIcon h4 {
+        display: block;
+        margin: 0 auto;
+    }
 }
 </style>
 
@@ -100,7 +142,7 @@
         <div class="footer-grid">
             <div class="footer-column">
                 <div class="footerIcon">
-<img src="/home/img/circuit.png">
+                    <img src="/beta/assets/images/circuit.png">
     
                     <h4>ircuit</h4><p class="footerIcon p">The all-in-one solution for effortlessly managing your server.</p>
                 </div>
@@ -140,7 +182,7 @@
             <p>© 2024 Circuit. All rights reserved.</p>
             <div class="legal-links">
                 <a href="/home/legal/privacy">Privacy Policy</a>
-                <a href="/home/legal/terms">Terms of Use</a>
+                <a href="/home/legal/terms">Terms of Service</a>
                 <a href="/home/help/contact">Contact Us</a>
             </div>
         </div>
