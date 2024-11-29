@@ -14,7 +14,7 @@ app.get('/api/bot-guilds', async (req, res) => {
     }
 
     try {
-        const response = await fetch('https://discord.com/api/v9/users/@me/guilds', {
+        const response = await fetch('https://discord.com/api/v10/users/@me/guilds', {
             headers: {
                 Authorization: `Bot ${botToken}`
             }

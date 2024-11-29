@@ -1,0 +1,178 @@
+<style>
+    /* Footer Container */
+    .circuit-footer {
+      background-color: #141414;
+      color: #c9d1d9;
+      font-family: 'Arial', sans-serif;
+      padding: 40px 20px;
+      border-top: 1px solid #30363d;
+    }
+    
+    .circuit-footer-container {
+      max-width: 1170px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    
+    /* Description Section */
+    .circuit-footer-description {
+      flex: 1 1 300px;
+      min-width: 300px;
+    }
+    
+    .circuit-footer-title {
+      margin: 0;
+      font-size: 24px;
+      color: #e6e5e5;
+    }
+    
+    .circuit-footer-text {
+      margin: 15px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #666;
+    }
+    
+    /* Links Section */
+    .circuit-footer-links {
+      display: flex;
+      gap: 40px;
+    }
+    
+    .circuit-footer-links-column {
+      flex: 0 0 auto;
+      min-width: 150px;
+    }
+    
+    .circuit-footer-links-title {
+      margin-bottom: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #c9d1d9;
+    }
+    
+    .circuit-footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    
+    .circuit-footer-link {
+      text-decoration: none;
+      color: #bdbdbd;
+      transition: color 0.3s ease;
+    }
+    
+    .circuit-footer-link:hover {
+      color: #fff;
+    }
+    
+    /* Bottom Section */
+    .circuit-footer-bottom {
+      max-width: 1170px;
+      margin: 40px auto 0;
+      border-top: 1px solid #30363d;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+    
+    .circuit-footer-bottom-text {
+      margin-bottom: 10px;
+      color: #666;
+    }
+    
+    .circuit-footer-status {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    /* Buttons */
+    .circuit-footer-button {
+      font-size: 14px;
+      padding: 8px 12px;
+      background-color: #21262d;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      position: relative;
+      text-decoration: none;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .circuit-footer-button:hover {
+      background-color: #30363d;
+      border-color: #58a6ff;
+    }
+    
+    /* Status Indicator */
+    .status-indicator-dot {
+      background-color: #2ea043;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+    }
+    
+        </style>
+        <body>
+    <footer class="circuit-footer">
+                <div class="circuit-footer-container">
+                  <div class="circuit-footer-description">
+                    <h3 class="circuit-footer-title">Circuit</h3>
+                    <p class="circuit-footer-text">
+                      Circuit simplifies managing your online communities with advanced tools for monitoring, collaboration, and
+                      growth. Stay connected and in control with Circuit.
+                    </p>
+                  </div>
+              
+                  <div class="circuit-footer-links">
+                    <div class="circuit-footer-links-column">
+                      <h4 class="circuit-footer-links-title">Resources</h4>
+                      <ul class="circuit-footer-links-list">
+                        <li><a href="https://help.circuitbot.xyz/" class="circuit-footer-link">Help Center</a></li>
+                        <li><a href="/discord" class="circuit-footer-link">Community</a></li>
+                        <li><a href="/apidocs" class="circuit-footer-link">API Documentation</a></li>
+                        <li><a href="https://status.circuitbot.xyz/" class="circuit-footer-link">System Status</a></li>
+                        <li><a href="/contact" class="circuit-footer-link">Contact Us</a></li>
+                      </ul>
+                    </div>
+                    <div class="circuit-footer-links-column">
+                      <h4 class="circuit-footer-links-title">Legal</h4>
+                      <ul class="circuit-footer-links-list">
+                        <li><a href="/terms" class="circuit-footer-link">Terms of Service</a></li>
+                        <li><a href="/privacy" class="circuit-footer-link">Privacy Policy</a></li>
+                        <li><a href="/refunds" class="circuit-footer-link">Refund Policy</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="circuit-footer-bottom">
+                  <div class="circuit-footer-bottom-text">© 2024 Circuit. All rights reserved.</div>
+                  <div class="circuit-footer-status">
+                    <button class="circuit-footer-button circuit-footer-version-button">
+                      v1.0.0
+                    </button>
+                    <a href="https://status.circuitbot.xyz/" class="circuit-footer-button circuit-footer-status-button">
+                      <span>Status:</span>
+                      <span class="status-indicator-dot"></span>
+                      <span>Online</span>
+                    </a>
+                  </div>
+                </div>
+              </footer>
+    </body>
