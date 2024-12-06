@@ -1,0 +1,203 @@
+        .circuit-navbar {
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+/* Logo Image */
+.circuit-logo {
+    width: 40px;
+    height: 40px;
+	margin-right: 10px;
+    border-radius: 50%;
+}
+        .circuit-navbar-brand {
+			margin-left: 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+			display: flex;
+  			align-items: center;
+        }
+
+.circuit-navbar-links {
+    display: flex;
+	margin-left: 50px;
+    gap: 20px;
+}
+
+.circuit-nav-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.circuit-nav-link:hover {
+    color: #99aab5; /* Lighter Discord color */
+}
+
+        .circuit-navbar-profile {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            transition: all 0.3s ease;
+			margin-left: auto;
+        }
+
+        .circuit-navbar-profile img {
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .circuit-navbar-profile .username {
+            font-size: 1rem;
+            font-weight: 500;
+			font-family: system-ui;
+        }
+
+        .circuit-navbar-profile .discriminator {
+            font-size: 0.9rem;
+            color: #b9bbbe;
+        }
+
+        /* Arrow pointing down */
+        .circuit-arrow-down {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .circuit-arrow-down.rotate {
+            transform: rotate(180deg);
+        }
+
+        /* Highlighted Profile Area */
+        .circuit-navbar-profile.highlighted {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+	        /* Highlighted Profile Area */
+        .circuit-navbar-profile:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+/* Dropdown Menu Container */
+.dropdown-menu {
+    position: relative;
+    top: 75px;
+    right: 35px;
+    width: 250px;
+    background-color: #212529;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default, will be shown when the user clicks the profile */
+    z-index: 1000;
+}
+
+/* Upper Section: User Info */
+.dropdown-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.display-name {
+    font-weight: bold;
+    color: #dbdada;
+    display: block;
+}
+
+.username {
+    color: #dbdada;
+    font-size: 0.9rem;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: #f44336;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Tooltip that will appear when hovering */
+.logout-tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 150px; /* Position the tooltip above the button */
+    left: 13%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+/* Show the tooltip on hover */
+.logout-btn:hover .logout-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.logout-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Lower Section: Links */
+.dropdown-links {
+    padding: 10px 15px;
+}
+
+.dropdown-link {
+    display: block;
+    color: #dbdada;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown-link:hover {
+    background-color: #dbdada;
+    color: #007bff;
+}
+
+.dropdown-link:last-child {
+    border-bottom: none;
+}
+
+/* Show dropdown menu when active */
+.dropdown-menu.show {
+    display: block;
+	background-color: #212529;
+}
