@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const fetchProfileInfo = async () => {
-        const token = localStorage.getItem('discord_access_token');
+        const token = localStorage.getItem('token');
         if (!token) {
             displayLoginButton(); // Show login button if no token
             return;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Check if userInfo is empty (indicating invalid token)
         if (!userInfo.id) {
-            localStorage.removeItem('discord_access_token'); // Remove invalid token
+            localStorage.removeItem('token'); // Remove invalid token
             displayLoginButton(); // Show login button if token is invalid
             return;
         }
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const logoutButton = document.getElementById('logout-btn');
         logoutButton.addEventListener('click', () => {
-            localStorage.removeItem('discord_access_token');
+            localStorage.removeItem('token');
             window.location.reload();
         });
     };
