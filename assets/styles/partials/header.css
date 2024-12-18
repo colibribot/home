@@ -201,3 +201,13 @@
     display: block;
 	background-color: #212529;
 }
+
+@media (max-width: 768px) {
+    .circuit-username {
+        display: none;
+    }
+
+	.circuit-navbar-brand {
+		display: none;
+	}
+}
