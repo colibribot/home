@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayLoginButton = () => {
         const navbarProfile = document.getElementById('circuit-navbar-profile');
         navbarProfile.innerHTML = `
-            <button id="login-button" class="circuit-login-button">Login</button>`;
+            <button id="login-button" className="circuit-login-button">Login</button>`;
         
         const loginButton = document.getElementById('login-button');
         loginButton.addEventListener('click', () => {
