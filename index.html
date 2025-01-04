@@ -26,6 +26,10 @@
       transition: width 0.3s ease;
     }
 
+    body.sidebar-open #content-wrapper {
+      margin-left: 60px;
+    }
+
     .sidebar-profile {
       width: 42px;
       height: 42px;
@@ -355,6 +359,20 @@
         isDarkMode = true;
       }
     });
+
+		  // Assuming you have a way to open and close the sidebar (e.g., adding a class `open` when it's open)
+
+const sidebar = document.querySelector('.sidebar');
+const body = document.body;
+
+sidebar.addEventListener('click', () => {
+    // Toggle the 'open' class to the sidebar
+    sidebar.classList.toggle('open');
+
+    // Toggle the 'sidebar-open' class on the body to adjust the layout
+    body.classList.toggle('sidebar-open', sidebar.classList.contains('open'));
+});
+
   </script>
 	
     </body>
